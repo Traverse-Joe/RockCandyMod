@@ -1,0 +1,21 @@
+[
+{
+  "modid": "RockCandy",
+  "name": "Rock Candy",
+  "description": "This add underground foods for harsh hunger while mining. It also add special customizable candies to create",
+  "version": "0.0.1",
+  "mcversion": 1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [
+    "EmoKiba"
+  ],
+  "credits": "Tat2soupRhero for bugging me to create this",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]
