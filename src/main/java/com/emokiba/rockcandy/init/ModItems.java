@@ -14,6 +14,9 @@ public class ModItems
     public static final ItemFood plentifulCandy = new ItemPlentifulCandy();
     public static final ItemFood fatCandy = new ItemFatCandy();
     public static final ItemCandy healthyCandy = new ItemHealthyCandy();
+    public static final ItemCore saturatedCore = new ItemSaturatedCore();
+    public static final Item saturationCrystal = new ItemSaturationCrystal();
+    public static final ItemCandy skyCandy = new ItemSkyCandy();
 
 
     public static void init()
@@ -25,6 +28,9 @@ public class ModItems
         GameRegistry.registerItem(plentifulCandy,"plentifulcandy");
         GameRegistry.registerItem(fatCandy,"fatcandy");
         GameRegistry.registerItem(healthyCandy,"healthycandy");
+        GameRegistry.registerItem(saturatedCore,"saturatedcore");
+        GameRegistry.registerItem(saturationCrystal,"saturationcrystal");
+        GameRegistry.registerItem(skyCandy,"skycandy");
     }
 
 }

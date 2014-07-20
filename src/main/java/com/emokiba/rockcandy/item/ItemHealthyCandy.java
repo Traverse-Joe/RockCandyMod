@@ -9,7 +9,7 @@ public class ItemHealthyCandy extends ItemCandy
         super(1, 0.1F, false);
        this.setAlwaysEdible();
        this.setUnlocalizedName("healthyCandy");
-       this.setPotionEffect(Potion.regeneration.id,5,5,100F);
+       this.setPotionEffect(Potion.regeneration.id,5,1,100F);
        this.setTextureName("rockcandy:healthyCandy");
     }
 }

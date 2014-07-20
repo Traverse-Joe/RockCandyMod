@@ -4,15 +4,13 @@ import com.emokiba.rockcandy.creativetab.CreativeTab;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
-public class ItemUnprocessedSugarCore extends Item
+public class ItemSaturationCrystal extends Item
 {
-    public ItemUnprocessedSugarCore()
-    {
+    public ItemSaturationCrystal(){
         super();
-        this.setMaxStackSize(1);
-        this.setTextureName("rockcandy:unprocessedsugarCore");
+        this.setTextureName("rockcandy:saturationCrystal");
         this.setCreativeTab(CreativeTab.ROCKCANDY_TAB);
-        this.setUnlocalizedName("unprocessedsugarCore");
+        this.setUnlocalizedName("saturationCrystal");
 
     }
 }

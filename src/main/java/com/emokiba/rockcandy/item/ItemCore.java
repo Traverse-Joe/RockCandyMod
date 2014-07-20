@@ -1,5 +1,6 @@
 package com.emokiba.rockcandy.item;
 
+import com.emokiba.rockcandy.creativetab.CreativeTab;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -11,6 +12,7 @@ public class ItemCore extends Item
         super();
         this.setNoRepair();
         this.setMaxStackSize(1);
+        this.setCreativeTab(CreativeTab.ROCKCANDY_TAB);
 
 
     }

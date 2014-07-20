@@ -1,5 +1,6 @@
 package com.emokiba.rockcandy.block;
 
+import com.emokiba.rockcandy.creativetab.CreativeTab;
 import com.emokiba.rockcandy.init.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -17,7 +18,7 @@ public class BlockCandyOre extends Block
         setStepSound(soundTypeStone);
         setHardness(1.5f);
         setLightLevel(0.5f);
-        setCreativeTab(CreativeTabs.tabBlock);
+        setCreativeTab(CreativeTab.ROCKCANDY_TAB);
         setBlockName("candyOre");
         setBlockTextureName("rockcandy:candyOre");
     }

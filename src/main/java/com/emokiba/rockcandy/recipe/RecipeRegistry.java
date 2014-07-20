@@ -19,31 +19,68 @@ public class RecipeRegistry
                 "AAA",
                 'A', Items.sugar ,'B',Items.diamond
         });
+
         GameRegistry.addRecipe(new ItemStack(ModItems.sweetrockCandy,4), new Object[]{
                 "CAC",
                 "ABA",
                 "CAC",
-                 'A', Items.sugar ,'B',new ItemStack(ModItems.sugarCore,1,i),'C',ModItems.rockCandy
+                'A', Items.sugar ,'B',new ItemStack(ModItems.saturatedCore,1,i),'C',ModItems.rockCandy
         });
-        GameRegistry.addRecipe(new ItemStack(ModItems.plentifulCandy,4), new Object[]{
+        GameRegistry.addRecipe(new ItemStack(ModItems.plentifulCandy,2), new Object[]{
                 " A ",
                 "ABA",
                 " A ",
                 'A', ModItems.rockCandy ,'B',new ItemStack(ModItems.sugarCore,1,i)
+        }); GameRegistry.addRecipe(new ItemStack(ModItems.plentifulCandy,4), new Object[]{
+                " A ",
+                "ABA",
+                " A ",
+                'A', ModItems.rockCandy ,'B',new ItemStack(ModItems.saturatedCore,1,i)
         });
-        GameRegistry.addRecipe(new ItemStack(ModItems.fatCandy, 4), new Object[]{
+
+        GameRegistry.addRecipe(new ItemStack(ModItems.fatCandy, 1), new Object[]{
                         " A ",
                         "ABA",
                         " A ",
                         'A', ModItems.plentifulCandy, 'B', new ItemStack(ModItems.sugarCore, 1, i)
                 });
+        GameRegistry.addRecipe(new ItemStack(ModItems.fatCandy, 3), new Object[]{
+                " A ",
+                "ABA",
+                " A ",
+                'A', ModItems.plentifulCandy, 'B', new ItemStack(ModItems.saturatedCore, 1, i)
+        });
         GameRegistry.addRecipe(new ItemStack(ModItems.healthyCandy, 4), new Object[]{
                 "DAD",
                 "CBC",
                 "DAD",
-                'A', Items.carrot, 'B', new ItemStack(ModItems.sugarCore, 1, i),'C',Items.potato,'D',ModItems.rockCandy
+                'A', Items.carrot, 'B', new ItemStack(ModItems.sugarCore,0, i),'C',Items.potato,'D',ModItems.rockCandy
         });
-                GameRegistry.addSmelting(new ItemStack(ModItems.unprocessedsugarCore), new ItemStack(ModItems.sugarCore), 0.0F);
+        GameRegistry.addRecipe(new ItemStack(ModItems.healthyCandy, 8), new Object[]{
+                "DAD",
+                "CBC",
+                "DAD",
+                'A', Items.carrot, 'B', new ItemStack(ModItems.saturatedCore,0, i),'C',Items.potato,'D',ModItems.rockCandy
+        });
+        GameRegistry.addRecipe(new ItemStack(ModItems.saturationCrystal), new Object[]{
+                " A ",
+                "ABA",
+                " A ",
+                'A', Items.diamond, 'B', new ItemStack(ModItems.sugarCore, 2, i)
+        });
+        GameRegistry.addRecipe(new ItemStack(ModItems.saturatedCore), new Object[]{
+                "CAC",
+                "ABA",
+                "CAC",
+                'A', ModItems.saturationCrystal, 'B', new ItemStack(ModItems.sugarCore, 1, i),'C', ModItems.rockCandy
+        });
+        GameRegistry.addRecipe(new ItemStack(ModItems.skyCandy,4), new Object[]{
+                "CAC",
+                "ABA",
+                "CAC",
+                'A', Items.feather ,'B',new ItemStack(ModItems.saturatedCore,1,i),'C',ModItems.rockCandy
+        });
+        GameRegistry.addSmelting(new ItemStack(ModItems.unprocessedsugarCore), new ItemStack(ModItems.sugarCore), 0.0F);
 
 
     }
