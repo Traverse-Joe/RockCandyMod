@@ -5,6 +5,7 @@ import com.emokiba.rockcandy.handler.ConfigurationHandler;
 import com.emokiba.rockcandy.init.ModBlocks;
 import com.emokiba.rockcandy.init.ModItems;
 import com.emokiba.rockcandy.proxy.IProxy;
+import com.emokiba.rockcandy.recipe.RecipeRegistry;
 import com.emokiba.rockcandy.reference.Reference;
 import com.emokiba.rockcandy.utility.LogHelper;
 import cpw.mods.fml.common.Mod;
@@ -30,6 +31,7 @@ public class RockCandy
 
         ModBlocks.init();
         ModItems.init();
+        RecipeRegistry.init();
     }
     @Mod.EventHandler
     public void init(FMLPreInitializationEvent event)
