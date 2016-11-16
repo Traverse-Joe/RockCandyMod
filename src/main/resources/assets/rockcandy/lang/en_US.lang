@@ -1,16 +1,11 @@
-tile.candyOre.name=Candy Ore
-item.rockCandy.name=Rock Candy
-item.sweetrockCandy.name=Sweet Rock Candy
-item.deepblueCandy.name=Deep Blue Candy
-item.redhotCandy.name=Red Hot Candy
-item.glowCandy.name=Glow Candy
-item.skyCandy.name=Sky Candy
-item.healthyCandy.name=Healthy Candy
-item.plentifulCandy.name=Plentiful Candy
-item.fatCandy.name=Fat Candy
+#en_US.lang File
+
+#Items
+item.rockcandy.raw_rock_candy.name=Raw Rock Candy
+item.rockcandy.rock_candy.name=Rock Candy
+
+#Blocks
+tile.candy_ore.name=Candy Ore
+
+#CreativeTab
 itemGroup.rockcandy=Rock Candy
-item.clearCandy.name=Clear Candy
-item.unprocessedsugarCore.name=Unprocessed Candy Core
-item.sugarCore.name=Candy Core
-item.saturatedCore.name=Saturated Core
-item.saturationCrystal.name=Saturation Crystal
