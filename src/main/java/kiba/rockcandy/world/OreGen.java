@@ -1,5 +1,6 @@
 package kiba.rockcandy.world;
 
+import kiba.rockcandy.Globals;
 import kiba.rockcandy.registry.ModBlocks;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
@@ -17,14 +18,14 @@ public class OreGen implements IWorldGenerator {
     private WorldGenerator genCandyOre;
 
     public OreGen(){
-        this.genCandyOre = new WorldGenMinable(ModBlocks.blockCandyOre.getDefaultState(), 5, BlockMatcher.forBlock(Blocks.STONE));
+        this.genCandyOre = new WorldGenMinable(ModBlocks.blockCandyOre.getDefaultState(), Globals.VEIN_ORE_SIZE, BlockMatcher.forBlock(Blocks.STONE));
     }
 
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
        if (world.provider.getDimension() == 0){
            for (int i =0; i <5; i++){
                int x = chunkX * 16 + random.nextInt(16);
-               int y = 0 + random.nextInt(64);
+               int y = Globals.MIN_Y_LEVEL + random.nextInt(Globals.MAX_Y_LEVEL);
                int z = chunkZ * 16 + random.nextInt(16);
                this.genCandyOre.generate(world,random, new BlockPos(x ,y ,z));
            }
