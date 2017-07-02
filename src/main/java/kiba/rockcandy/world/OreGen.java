@@ -23,7 +23,7 @@ public class OreGen implements IWorldGenerator {
 
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
        if (world.provider.getDimension() == 0){
-           for (int i =0; i <1; i++){
+           for (int i =0; i <Globals.ORE_RARITY; i++){
                int x = chunkX * 16 + random.nextInt(16);
                int y = Globals.MIN_Y_LEVEL + random.nextInt(Globals.MAX_Y_LEVEL);
                int z = chunkZ * 16 + random.nextInt(16);

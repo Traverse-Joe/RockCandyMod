@@ -29,8 +29,9 @@ public class ConfigHandler {
 
         Globals.VEIN_ORE_SIZE = CONFIG.getInt("VeinOreSize", DEF_CAT, 5, 0, 64, "How much Ore Appears in a Vein");
         Globals.MAX_Y_LEVEL = CONFIG.getInt("MaxYLevel", DEF_CAT, 64, 0, 255, "Maximum Y Level for Ore Spawn");
-        Globals.MIN_Y_LEVEL = CONFIG.getInt("MinYLevel", DEF_CAT, 0, 0, 0, "Minimum Y Level for Ore Spawn");
-
+        Globals.MIN_Y_LEVEL = CONFIG.getInt("MinYLevel", DEF_CAT, 0, 0, 255, "Minimum Y Level for Ore Spawn");
+        Globals.ORE_RARITY = CONFIG.getInt("Ore Rarity", DEF_CAT, 1, 1, 100, "The higher the number the more common they appear!");
+        
         if (CONFIG.hasChanged()) {
             CONFIG.save();
         }
