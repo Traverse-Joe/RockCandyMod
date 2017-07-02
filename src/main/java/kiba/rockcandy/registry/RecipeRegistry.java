@@ -8,11 +8,11 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public class RecipeRegistry {
 
-    public static void register(FMLPreInitializationEvent event) {
+  /*  public static void register(FMLPreInitializationEvent event) {
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.itemRockCandy), "X", "Y", 'X', ModItems.itemRawRockCandy, 'Y', "stickWood"));
 
         if (Loader.isModLoaded("tconstruct")) {
             GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.itemRockCandy), "X", "Y", 'X', ModItems.itemRawRockCandy, 'Y', "rodStone"));
         }
-    }
+    }*/
 }

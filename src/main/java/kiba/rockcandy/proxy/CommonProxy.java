@@ -21,7 +21,7 @@ public class CommonProxy {
         CREATIVE_TAB = new RockCandyCreativeTab();
         ModItems.init();
         ModBlocks.init();
-        RecipeRegistry.register(event);
+        //RecipeRegistry.register(event);
         ConfigHandler.init();
 
 
