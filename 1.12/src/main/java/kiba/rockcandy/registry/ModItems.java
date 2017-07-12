@@ -1,9 +1,6 @@
 package kiba.rockcandy.registry;
 
-import kiba.rockcandy.items.ItemCandyGem;
-import kiba.rockcandy.items.ItemHardenRockCandy;
-import kiba.rockcandy.items.ItemRawRockCandy;
-import kiba.rockcandy.items.ItemRockCandy;
+import kiba.rockcandy.items.*;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -13,6 +10,7 @@ public class ModItems {
     public static ItemRawRockCandy itemRawRockCandy;
     public static ItemHardenRockCandy itemHardenRockCandy;
     public static ItemCandyGem itemCandyGem;
+    public static ItemCandyClub itemCandyClub;
 
 
 
@@ -21,6 +19,7 @@ public class ModItems {
         itemRawRockCandy = new ItemRawRockCandy();
         itemHardenRockCandy = new ItemHardenRockCandy();
         itemCandyGem = new ItemCandyGem();
+        itemCandyClub = new ItemCandyClub();
     }
 
 
@@ -30,5 +29,6 @@ public class ModItems {
         itemRawRockCandy.initModel();
         itemHardenRockCandy.initModel();
         itemCandyGem.initModel();
+        itemCandyClub.initModel();
     }
 }
