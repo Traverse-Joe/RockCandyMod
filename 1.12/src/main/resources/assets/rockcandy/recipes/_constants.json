@@ -1,0 +1,9 @@
+[
+  {
+    "name": "infused_lava_crystal",
+    "ingredient": {
+      "item": "rockcandy:raw_rock_candy",
+      "data": 0
+    }
+  }
+]
