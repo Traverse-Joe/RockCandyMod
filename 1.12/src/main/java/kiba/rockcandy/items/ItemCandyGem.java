@@ -89,7 +89,7 @@ public class ItemCandyGem extends BaseUsableGem {
         int damage = rockGem.getItemDamage();
         for (int i = 0; inventory.getSlots() > i; ++i) {
             ItemStack stack = inventory.getStackInSlot(i);
-            if (stack.getItem() == Items.SUGAR || stack.getItem() == ModItems.itemRawRockCandy) {
+            if (stack.getItem() == Items.SUGAR) {
                 ItemStack sugarStack = inventory.extractItem(i, 1, false);
                 this.setDamage(rockGem, damage - sugarStack.getCount());
                 return;

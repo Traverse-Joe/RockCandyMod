@@ -1,25 +1,19 @@
 package kiba.rockcandy.items;
 
 import kiba.rockcandy.registry.ModItems;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
-import javax.annotation.Nullable;
-import javax.swing.plaf.basic.BasicComboBoxUI;
 import java.util.List;
 
 public class ItemCandyGem extends BaseUsableGem {
@@ -41,10 +35,10 @@ public class ItemCandyGem extends BaseUsableGem {
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
-        ActionResult Success = super.onItemRightClick(world, player, hand);
+    public ActionResult<ItemStack> onItemRightClick(ItemStack itemstack, World world, EntityPlayer player, EnumHand hand) {
+        ActionResult Success = super.onItemRightClick(itemstack, world, player, hand);
 
-        ItemStack itemstack = player.getHeldItem(hand);
+
         if (itemstack.getItemDamage() != itemstack.getMaxDamage() && Success.getType() == EnumActionResult.PASS && player.getFoodStats().needFood()) {
             player.setActiveHand(hand);
             return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
@@ -89,9 +83,9 @@ public class ItemCandyGem extends BaseUsableGem {
         int damage = rockGem.getItemDamage();
         for (int i = 0; inventory.getSlots() > i; ++i) {
             ItemStack stack = inventory.getStackInSlot(i);
-            if (stack.getItem() == Items.SUGAR || stack.getItem() == ModItems.itemRawRockCandy) {
+            if (stack.getItem() == Items.SUGAR) {
                 ItemStack sugarStack = inventory.extractItem(i, 1, false);
-                this.setDamage(rockGem, damage - sugarStack.getCount());
+                this.setDamage(rockGem, damage - sugarStack.stackSize);
                 return;
 
             }
@@ -99,8 +93,8 @@ public class ItemCandyGem extends BaseUsableGem {
     }
 
     @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+    public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
         tooltip.add(stack.getMaxDamage() - stack.getItemDamage() + "/" + stack.getMaxDamage() + " Charges");
-        super.addInformation(stack, worldIn, tooltip, flagIn);
+        super.addInformation(stack, playerIn, tooltip, advanced);
     }
 }

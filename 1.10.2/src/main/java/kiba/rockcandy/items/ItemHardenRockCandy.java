@@ -19,7 +19,7 @@ public class ItemHardenRockCandy extends BaseFoodItem {
         return 16;
     }
 
-    @Override
+
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
     {
         ItemStack itemstack = playerIn.getHeldItem(handIn);
@@ -27,7 +27,7 @@ public class ItemHardenRockCandy extends BaseFoodItem {
         if (playerIn.canEat(false ))
         {
             playerIn.setActiveHand(handIn);
-            playerIn.attackEntityFrom(DamageSource.GENERIC, 2.0F);
+            playerIn.attackEntityFrom(DamageSource.generic , 2.0f);
             return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
         }
         else

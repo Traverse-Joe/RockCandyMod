@@ -10,8 +10,8 @@ public class RockCandyCreativeTab extends CreativeTabs {
         super(RockCandy.MODID);
     }
     @Override
-    public ItemStack getTabIconItem() {
-        return new ItemStack(ModItems.itemRockCandy);
+    public Item getTabIconItem() {
+        return ModItems.itemRockCandy;
 
     }
 }

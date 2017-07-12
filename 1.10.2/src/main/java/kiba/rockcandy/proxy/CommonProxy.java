@@ -23,6 +23,7 @@ public class CommonProxy {
         CREATIVE_TAB = new RockCandyCreativeTab();
         ModItems.init();
         ModBlocks.init();
+        RecipeRegistry.register(event);
         RecipeRegistry.FurniceRegister(event);
         ConfigHandler.init();
 
@@ -37,6 +38,7 @@ public class CommonProxy {
     }
 
     public void postInit(FMLPostInitializationEvent event){
+
 
     }
     public void registerRenderers(){
