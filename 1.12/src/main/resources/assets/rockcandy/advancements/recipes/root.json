@@ -11,7 +11,7 @@
     },
     "background": "rockcandy:textures/blocks/candy_ore.png",
     "show_toast": false,
-    "announce_to_chat": false
+    "announce_to_chat": true
   },
   "criteria": {
     "auto": {

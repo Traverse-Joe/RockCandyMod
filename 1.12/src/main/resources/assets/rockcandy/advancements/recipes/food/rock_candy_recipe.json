@@ -6,7 +6,7 @@
     ]
   },
   "criteria": {
-    "has_raw_rock_candy_block": {
+    "has_raw_rock_candy": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -16,7 +16,7 @@
         ]
       }
     },
-    "has_rock_candy_recipe": {
+    "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
         "recipe": "rockcandy:rock_candy"
@@ -25,8 +25,8 @@
   },
   "requirements": [
     [
-      "has_raw_rock_candy_block",
-      "has_rock_candy_recipe"
+      "has_raw_rock_candy",
+      "has_the_recipe"
     ]
   ]
 }
