@@ -1,10 +1,10 @@
 {
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-        "0": "rockcandy:items/candygem/candygemBlue",
-        "1": "rockcandy:items/candygem/candygemGreen",
-        "2": "rockcandy:items/candygem/candygemRed",
-        "3": "rockcandy:items/candygem/candygemYellow"
+        "0": "rockcandy:items/candygem/candygemblue",
+        "1": "rockcandy:items/candygem/candygemgreen",
+        "2": "rockcandy:items/candygem/candygemred",
+        "3": "rockcandy:items/candygem/candygemyellow"
     },
     "elements": [
         {
