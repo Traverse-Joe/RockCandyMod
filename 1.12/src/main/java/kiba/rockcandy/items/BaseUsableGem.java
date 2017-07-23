@@ -41,7 +41,7 @@ public class BaseUsableGem extends BaseItem {
         return isActive(stack);
     }
 
-    private boolean isActive(@Nonnull ItemStack stack) {
+    public boolean isActive(@Nonnull ItemStack stack) {
         NBTTagCompound compound = stack.getTagCompound();
 
        if(compound == null){

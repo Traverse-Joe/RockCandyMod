@@ -81,7 +81,8 @@ public class ItemCandyGem extends BaseUsableGem {
             ItemStack stack = playerInventory.getStackInSlot(i);
             if (stack.getItem() != this)
                 continue;
-            if (stack.hasEffect()) {
+
+            if (stack.getItem() instanceof BaseUsableGem && isActive(stack)) {
                 absorbSugar(stack, playerInventory);
             }
         }
