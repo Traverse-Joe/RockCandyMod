@@ -1,8 +1,6 @@
 package kiba.rockcandy.items;
 
-import javafx.scene.paint.Material;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -14,10 +12,8 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraftforge.event.entity.living.LivingAttackEvent;
-import net.minecraftforge.event.entity.player.AttackEntityEvent;
-import net.minecraftforge.fml.common.eventhandler.Event;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -62,10 +58,10 @@ public class ItemCandyClub extends BaseItemWeapon{
 
         return stack;
     }
-
+    @SideOnly(Side.CLIENT)
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        tooltip.add(TextFormatting.RED+"Shift-Click When Hunger to Snack on this Delicious Treat");
+        tooltip.add(TextFormatting.RED+"Shift-Click When Hungry to Snack on this Delicious Treat");
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
     //    @SubscribeEvent

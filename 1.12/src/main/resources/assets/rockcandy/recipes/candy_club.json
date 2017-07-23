@@ -1,0 +1,15 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [ " h " , "hdh", " h "],
+  "key":{
+    "h": {
+      "item": "rockcandy:harden_rock_candy"
+    },
+    "d":{
+      "item":"minecraft:diamond_sword"
+    }
+  },
+  "result": {
+    "item": "rockcandy:candy_club"
+  }
+}
