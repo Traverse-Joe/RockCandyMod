@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 buildscript {
     repositories {
         jcenter()
@@ -12,9 +12,9 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "2.0.1"
+version = "2.0.2"
 group = "kiba.rockcandy" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "rockcndy"
+archivesBaseName = "rockcandy"
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 compileJava {
@@ -22,7 +22,7 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12-14.21.1.2405"
+    version = "1.12-14.21.1.2420"
     runDir = "run"
     
     // the mappings can be changed at any time, and must be in the following format.
@@ -76,7 +76,7 @@ processResources {
         exclude 'mcmod.info'
     }
 }
-=======
+
 buildscript {
     repositories {
         jcenter()
@@ -149,4 +149,4 @@ processResources {
         exclude 'mcmod.info'
     }
 }
->>>>>>> origin/master
+
