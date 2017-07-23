@@ -11,17 +11,12 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "1.0"
-group = "com.yourname.modid" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "modid"
-
-sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
-compileJava {
-    sourceCompatibility = targetCompatibility = '1.8'
-}
+version = "1.12-0.2"
+group= "kiba.rockcandy" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "RockCandy"
 
 minecraft {
-    version = "1.12-14.21.1.2405"
+    version = "1.12-14.21.1.2420"
     runDir = "run"
     
     // the mappings can be changed at any time, and must be in the following format.
