@@ -20,7 +20,8 @@ public class RecipeRegistry {
     }*/
 @SubscribeEvent
 
-  public static void FurniceRegister(FMLPreInitializationEvent event){
+  public static void FurnaceRegister(FMLPreInitializationEvent event){
     FurnaceRecipes.instance().addSmelting(ModItems.itemHardenRockCandy, new ItemStack(Items.SUGAR ), 0.0F);
+    FurnaceRecipes.instance().addSmelting(ModItems.itemCandyCore, new ItemStack(ModItems.itemCandyRod,2),0.2F);
   }
 }

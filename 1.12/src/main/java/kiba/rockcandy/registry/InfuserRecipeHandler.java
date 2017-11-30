@@ -19,6 +19,11 @@ public class InfuserRecipeHandler {
 
     public InfuserRecipeHandler() {
         this.addInfuserForItems(Items.DIAMOND, new ItemStack(ModItems.itemCandyCore));
+        this.addInfuserForItems(Items.MAGMA_CREAM , new ItemStack(ModItems.itemRedHotCandy));
+        this.addInfuserForItems(Items.PRISMARINE_SHARD, new ItemStack(ModItems.itemDeepBlueCandy));
+        this.addInfuserForItems(Items.GOLDEN_CARROT , new ItemStack(ModItems.itemGlowCandy));
+        this.addInfuserForItems(Items.GHAST_TEAR, new ItemStack(ModItems.itemClearCandy));
+        this.addInfuserForItems(Items.SHULKER_SHELL , new ItemStack(ModItems.itemFloatCandy));
 
     }
 

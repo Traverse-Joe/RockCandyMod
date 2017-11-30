@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "rockcandy:items/raw_rock_candy"
-  }
-}

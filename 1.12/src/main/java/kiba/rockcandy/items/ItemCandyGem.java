@@ -39,7 +39,7 @@ public class ItemCandyGem extends BaseUsableGem {
 
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {
-        return 8;
+        return 4;
     }
 
     @Override
@@ -58,7 +58,7 @@ public class ItemCandyGem extends BaseUsableGem {
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
         if (entityLiving instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) entityLiving;
-            player.getFoodStats().addStats(1, 0.5f);
+            player.getFoodStats().addStats(2, 1.0f);
             worldIn.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F);
             stack.damageItem(1, player);
         }
@@ -90,16 +90,21 @@ public class ItemCandyGem extends BaseUsableGem {
 
     private void absorbSugar(ItemStack rockGem, IItemHandler inventory) {
         int damage = rockGem.getItemDamage();
-        for (int i = 0; inventory.getSlots() > i; ++i) {
-            ItemStack stack = inventory.getStackInSlot(i);
-            if (stack.getItem() == Items.SUGAR) {
-                ItemStack sugarStack = inventory.extractItem(i, 1, false);
-                this.setDamage(rockGem, damage - sugarStack.getCount());
-                return;
+        if (damage != 0) {
+            for (int i = 0; inventory.getSlots() > i; ++i) {
+                ItemStack stack = inventory.getStackInSlot(i);
 
+                if (stack.getItem() == Items.SUGAR) {
+                    ItemStack sugarStack = inventory.extractItem(i, 1, false);
+                    this.setDamage(rockGem, damage - sugarStack.getCount());
+
+                    return;
+
+                }
             }
         }
     }
+
     @SideOnly(Side.CLIENT)
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
