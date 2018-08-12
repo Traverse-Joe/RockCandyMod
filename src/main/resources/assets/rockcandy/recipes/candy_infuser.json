@@ -1,0 +1,18 @@
+{
+  "type":"forge:ore_shaped",
+  "pattern":[" s ", " f ", "bbb"],
+  "key": {
+    "s": {
+      "item": "rockcandy:candy_rod"
+    },
+    "f": {
+      "item": "minecraft:furnace"
+    },
+    "b": {
+      "item": "rockcandy:candy_block"
+    }
+  },
+  "result":{
+    "item": "rockcandy:candy_infuser"
+  }
+}
