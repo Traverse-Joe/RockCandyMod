@@ -1,3 +1,4 @@
+#PARSE_ESCAPES
 #en_US.lang File
 
 #Items
@@ -18,8 +19,8 @@ item.rockcandy.clear_candy.name=Clear Candy
 item.rockcandy.float_candy.name=Floating Candy
 item.rockcandy.healthy_candy.name=Healthy Candy
 
-
-
+#JEI Descriptions
+jei.candy_gem.desc=The Everlasting Gobstopper is a nifty item.\nIt will store sugar into it and can be eaten\n§e§o"You can suck'em and suck'em and suck'em and they'll never get any smaller. Never.!"§r\nCan Be Enchanted with §4§lAuto Feed
 
 #Tools
 item.rockcandy.candy_club.name=Candy Club
@@ -34,7 +35,7 @@ tile.candy_block.name=Candy Block
 item.rockcandy.hunger_stick.name=Debug Hunger Stick
 
 #Enchants
-enchantment.auto_feed=Auto Feed
+enchantment.auto_feed=§4Auto Feed
 
 #CreativeTab
 itemGroup.rockcandy=Rock Candy

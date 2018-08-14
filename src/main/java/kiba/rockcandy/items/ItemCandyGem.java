@@ -71,11 +71,6 @@ public class ItemCandyGem extends BaseUsableGem {
         return stack;
     }
 
-    @Override
-    public boolean showDurabilityBar(ItemStack stack) {
-        return true;
-    }
-
     @SubscribeEvent
     public void onLivingUpdateEvent(TickEvent.PlayerTickEvent event) {
         if (!event.side.isServer())
@@ -131,6 +126,11 @@ public class ItemCandyGem extends BaseUsableGem {
     @Override
     public int getItemEnchantability() {
         return 20;
+    }
+
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+        return false;
     }
 
     @Override

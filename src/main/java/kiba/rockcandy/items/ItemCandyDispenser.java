@@ -66,10 +66,6 @@ public class ItemCandyDispenser extends BaseUsableGem {
         return stack;
     }
 
-    @Override
-    public boolean showDurabilityBar(ItemStack stack) {
-        return true;
-    }
 
     @SubscribeEvent
     public void onLivingUpdateEvent(TickEvent.PlayerTickEvent event) {
@@ -128,6 +124,11 @@ public class ItemCandyDispenser extends BaseUsableGem {
     @Override
     public int getItemEnchantability() {
         return 20;
+    }
+
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+        return false;
     }
 
     @Override

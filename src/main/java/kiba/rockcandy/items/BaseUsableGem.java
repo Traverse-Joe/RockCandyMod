@@ -1,14 +1,14 @@
 package kiba.rockcandy.items;
 
+import kiba.rockcandy.enchantments.EnchantmentTypes;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -20,6 +20,7 @@ import java.util.List;
 
 
 public class BaseUsableGem extends BaseItem {
+
     public BaseUsableGem(String name) {
         super(name);
         this.setMaxStackSize(1);
@@ -49,10 +50,12 @@ public class BaseUsableGem extends BaseItem {
         }
         return compound.getBoolean("isActive");
     }
+
     private void toggleActive(@Nonnull ItemStack stack){
         setActive(stack , !isActive(stack));
 
     }
+
     private void setActive (@Nonnull ItemStack stack , boolean bool){
         NBTTagCompound compound = stack.getTagCompound();
 
@@ -64,6 +67,28 @@ public class BaseUsableGem extends BaseItem {
         }
         compound.setBoolean("isActive", bool);
     }
+
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items)
+    {
+        if (this.isInCreativeTab(tab))
+        {
+            items.add(new ItemStack(this));
+            ItemStack emptystack = new ItemStack(this);
+            emptystack.setItemDamage(this.getMaxDamage());
+            items.add(emptystack);
+        }
+    }
+
+    @Override
+    public boolean showDurabilityBar(ItemStack stack) {
+        return stack.getItemDamage()>0;
+    }
+
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+        return false;
+    }
+
     @SideOnly(Side.CLIENT)
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
