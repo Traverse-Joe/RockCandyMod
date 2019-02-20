@@ -1,0 +1,17 @@
+{
+  "id": "rockcandy",
+  "name": "Rock Candy",
+  "description": "Add's Edible Underground Ore and Food Utilities",
+  "version": "1.0.0",
+  "side": "universal",
+  "initializers": [
+    "sora.rockcandy.RockCandy"
+  ],
+  "requires": {
+    "fabric": "*"
+  },
+  "mixins": {
+    "client": "rockcandy.client.json",
+    "common": "rockcandy.common.json"
+  }
+}

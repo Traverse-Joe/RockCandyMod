@@ -1,0 +1,21 @@
+{
+  "display": {
+    "icon": {
+      "item": "rockcandy:candy_ore"
+    },
+    "title": {
+      "text": "Candy That Will Save Your Life"
+    },
+    "description": {
+      "text": "The Ore"
+    },
+    "background": "rockcandy:textures/blocks/candy_ore.png",
+    "show_toast": false,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "auto": {
+      "trigger": "minecraft:location"
+    }
+  }
+}

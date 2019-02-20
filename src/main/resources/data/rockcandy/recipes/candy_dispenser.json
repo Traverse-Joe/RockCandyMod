@@ -1,0 +1,24 @@
+{
+  "type": "rockcandy:gem_shaped",
+  "pattern": [
+    "IHI",
+    "ICI",
+    "IHI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "H": {
+      "item": "rockcandy:harden_rock_candy"
+    },
+    "C": {
+      "item": "minecraft:chest"
+    }
+  },
+  "result": {
+    "item": "rockcandy:candy_dispenser",
+    "count": 1,
+    "data": 49
+  }
+}

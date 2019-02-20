@@ -1,0 +1,16 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "rr",
+    "rr"
+  ],
+  "key": {
+    "r": {
+      "item": "rockcandy:raw_rock_candy"
+    }
+  },
+  "result": {
+    "item": "rockcandy:harden_rock_candy",
+    "count": 2
+  }
+}

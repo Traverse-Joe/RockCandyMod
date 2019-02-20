@@ -1,0 +1,22 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "HSH",
+    "SDS",
+    "HSH"
+  ],
+  "key": {
+    "H": {
+      "item": "rockcandy:harden_rock_candy"
+    },
+    "S": {
+      "item": "minecraft:sugar"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    }
+  },
+    "result": {
+      "item": "rockcandy:candy_core"
+    }
+  }

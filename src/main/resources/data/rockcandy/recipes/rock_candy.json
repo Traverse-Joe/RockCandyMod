@@ -1,0 +1,15 @@
+{
+   "type": "crafting_shapeless",
+   "ingredients": [
+     {
+       "item": "rockcandy:raw_rock_candy"
+     },
+     {
+       "item" : "minecraft:stick"
+     }
+  ],
+   "result": {
+    "item": "rockcandy:rock_candy"
+  }
+ 
+ }

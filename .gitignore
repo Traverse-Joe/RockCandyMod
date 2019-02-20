@@ -1,18 +1,24 @@
-/*
-!wercker.yml
-!/.gitignore
-!/.gitmodules
-!/src
-!/gradle
-!/gradlew
-!/gradlew.bat
-!/README.md
-!/License.txt
-!/LICENSE
-!/VERSION
-!/.travis.yml
-!/build.gradle
-!/build.properties
-!/build.sh
-!/gradle.properties
-.DS_Store
+# gradle
+
+.gradle/
+build/
+out/
+
+# idea
+
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# vscode
+
+.settings/
+.vscode/
+bin/
+.classpath
+.project
+
+# fabric
+
+run/
