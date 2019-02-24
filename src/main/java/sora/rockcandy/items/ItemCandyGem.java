@@ -2,7 +2,7 @@ package sora.rockcandy.items;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.item.TooltipOptions;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
@@ -118,7 +118,7 @@ public class ItemCandyGem extends BaseUsableGem {
 
     @Override
     @Environment(EnvType.CLIENT)
-    public void buildTooltip(ItemStack stack, World world, List<TextComponent> list, TooltipOptions options) {
+    public void buildTooltip(ItemStack stack, World world, List<TextComponent> list, TooltipContext options) {
         list.add(new StringTextComponent(stack.getDurability() - stack.getDamage() + "/" + stack.getDurability() + " Charges"));
         super.buildTooltip(stack, world, list, options);
     }

@@ -6,20 +6,22 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 archivesBaseName = "rockcandy"
-version = "1.0.0"
+version = "1.0.2"
 
 minecraft {
 }
 
 repositories {
 	maven { url = "https://oss.sonatype.org/content/repositories/releases/" }
+	maven { url = "https://jitpack.io/" }
 }
 
 dependencies {
-    minecraft "com.mojang:minecraft:19w07a"
-    mappings "net.fabricmc:yarn:19w07a.16"
-    modCompile "net.fabricmc:fabric-loader:0.3.6.107"
+    minecraft "com.mojang:minecraft:19w08b"
+    mappings "net.fabricmc:yarn:19w08b.6"
+    modCompile "net.fabricmc:fabric-loader:0.3.7.109"
 	compileOnly "com.google.code.findbugs:jsr305:3.0.2"
+	implementation "com.github.Carleslc:Simple-YAML:1.2"
 
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
@@ -32,4 +34,22 @@ dependencies {
 task sourcesJar(type: Jar, dependsOn: classes) {
 	classifier = 'sources'
 	from sourceSets.main.allSource
+}
+
+processResources {
+    // this will ensure that this task is redone when there"s a change
+    inputs.property "version", project.version
+
+    // replace stuff in fabric.mod.json, nothing else
+    from(sourceSets.main.resources.srcDirs) {
+        include "fabric.mod.json"
+
+        // add mod metadata
+        expand "version": project.version
+    }
+
+    // copy everything else, that"s not the mcmod.info
+    from(sourceSets.main.resources.srcDirs) {
+        exclude "fabric.mod.json"
+    }
 }

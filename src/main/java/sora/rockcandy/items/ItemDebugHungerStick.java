@@ -2,7 +2,7 @@ package sora.rockcandy.items;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.item.TooltipOptions;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -31,7 +31,7 @@ public class ItemDebugHungerStick extends BaseItem {
 
     @Environment(EnvType.CLIENT)
     @Override
-    public void buildTooltip(ItemStack stack, World world, List<TextComponent> list, TooltipOptions options) {
+    public void buildTooltip(ItemStack stack, World world, List<TextComponent> list, TooltipContext options) {
         list.add(new StringTextComponent(TextFormat.DARK_RED + "DEBUG ITEM -- GIVE PLAYER ZERO HUNGER"));
         super.buildTooltip(stack, world, list, options);
     }

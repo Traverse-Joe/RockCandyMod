@@ -2,7 +2,7 @@
   "id": "rockcandy",
   "name": "Rock Candy",
   "description": "Add's Edible Underground Ore and Food Utilities",
-  "version": "1.0.0",
+  "version": "${version}",
   "side": "universal",
   "initializers": [
     "sora.rockcandy.RockCandy"

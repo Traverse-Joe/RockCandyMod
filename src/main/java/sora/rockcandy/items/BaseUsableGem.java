@@ -2,7 +2,7 @@ package sora.rockcandy.items;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.item.TooltipOptions;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
@@ -13,9 +13,7 @@ import net.minecraft.text.TextComponent;
 import net.minecraft.text.TextFormat;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
@@ -79,13 +77,13 @@ public class BaseUsableGem extends BaseItem {
 
     @Override
     @Environment(EnvType.CLIENT)
-    public void buildTooltip(ItemStack stack, @Nullable World world, List<TextComponent> list, TooltipOptions options) {
+    public void buildTooltip(ItemStack stack, @Nullable World world, List<TextComponent> list, TooltipContext options) {
         if(isActive(stack)){
-            list.add(new StringTextComponent(TextFormat.BLUE + "Is Active" + "" + TextFormat.GREEN + "True"));
+            list.add(new StringTextComponent(TextFormat.BLUE + "Is Active" + " " + TextFormat.GREEN + "True"));
 
         }
         else {
-            list.add(new StringTextComponent(TextFormat.BLUE + "Is Active" + "" + TextFormat.RED + "False"));
+            list.add(new StringTextComponent(TextFormat.BLUE + "Is Active" + " " + TextFormat.RED + "False"));
         }
         super.buildTooltip(stack, world, list, options);
     }

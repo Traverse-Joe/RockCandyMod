@@ -1,0 +1,7 @@
+#Rock Candy Mod Configs
+
+#World Gen
+vein-size: 6
+spawn-rate: 10
+max-y-level: 64
+min-y-level: 0

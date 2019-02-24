@@ -2,11 +2,13 @@ package sora.rockcandy.recipe;
 
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import com.google.gson.*;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonSyntaxException;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.crafting.ShapedRecipe;
 import net.minecraft.util.DefaultedList;
 import net.minecraft.util.Identifier;
@@ -19,9 +21,11 @@ import java.util.Map;
 import java.util.Set;
 
 public class GemShapedRecipe extends ShapedRecipe {
+    private  String group;
 
     public GemShapedRecipe(Identifier identifier_1, String string_1, int int_1, int int_2, DefaultedList<Ingredient> defaultedList_1, ItemStack itemStack_1) {
         super(identifier_1, string_1, int_1, int_2, defaultedList_1, itemStack_1);
+        group = string_1;
     }
 
     @Override
@@ -59,7 +63,7 @@ public class GemShapedRecipe extends ShapedRecipe {
         public void write(PacketByteBuf packetByteBuf_1, GemShapedRecipe shapedRecipe_1) {
             packetByteBuf_1.writeVarInt(shapedRecipe_1.getWidth());
             packetByteBuf_1.writeVarInt(shapedRecipe_1.getHeight());
-            packetByteBuf_1.writeString(shapedRecipe_1.getGroup());
+            packetByteBuf_1.writeString(shapedRecipe_1.group);
             Iterator var3 = shapedRecipe_1.getPreviewInputs().iterator();
 
             while(var3.hasNext()) {
@@ -130,7 +134,7 @@ public class GemShapedRecipe extends ShapedRecipe {
     public static ItemStack deserializeItemStack(JsonObject jsonObject_1) {
         int Damage = 0;
         String string_1 = JsonHelper.getString(jsonObject_1, "item");
-        Item item_1 = (Item) Registry.ITEM.getOptional(new Identifier(string_1)).orElseThrow(() -> {
+        Item item_1 = (Item) Registry.ITEM.getOrEmpty(new Identifier(string_1)).orElseThrow(() -> {
             return new JsonSyntaxException("Unknown item '" + string_1 + "'");
         });
         if (jsonObject_1.has("data")) {
