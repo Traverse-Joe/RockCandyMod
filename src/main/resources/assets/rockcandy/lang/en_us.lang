@@ -20,8 +20,9 @@ item.rockcandy.float_candy.name=Floating Candy
 item.rockcandy.healthy_candy.name=Healthy Candy
 
 #JEI Descriptions
-jei.candy_gem.desc=The Everlasting Gobstopper is a nifty item.\nIt will store sugar into it and can be eaten\n§e§o"You can suck'em and suck'em and suck'em and they'll never get any smaller. Never.!"§r\nCan Be Enchanted with §4§lAuto Feed
-
+jei.candy_gem.desc=The Everlasting Gobstopper is a nifty item.\nIt will store sugar into it and can be eaten\nIt can be Enchanted with §4Auto-Feed!
+jei.candy_dispenser.desc=The Candy Dispenser holds rock candy and hardened rock candy to consume. \nIt can be Enchanted with §4Auto-Feed!
+jei.candy_infuser.desc=The Candy Infuser infuses rock candy with powerful potion effects. Just Add Ingredients!\n§l§nRecipes: (Result/Ingredient)\n§rCandy Core: Diamond\nRed Hot Candy: Magma Cream\nDeep Blue Candy: Prismarine Shard\nGlow Candy: Golden Carrot\nClear Candy: Fermented Spider Eye\nFloat Candy: Shulker Shell\nHealthy Candy: Ghast Tear
 #Tools
 item.rockcandy.candy_club.name=Candy Club
 item.rockcandy.candy_cane_pickaxe.name=Candy Cane Pickaxe
