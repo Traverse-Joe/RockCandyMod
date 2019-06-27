@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 
 public class ItemHardenRockCandy extends BaseFood {
     public ItemHardenRockCandy() {
-        super("harden_rock_candy", 4, 1);
+        super("harden_rock_candy", 6, 0.6F);
 
     }
 

@@ -22,7 +22,7 @@ public class ModRegistry {
   public static void onItemRegistry(RegistryEvent.Register<Item> event){
     event.getRegistry().register(ModItems.ROCK_CANDY);
     event.getRegistry().register(ModItems.RAW_CANDY);
-    event.getRegistry().register(ModItems.HARDEND_CANDY);
+    event.getRegistry().register(ModItems.HARDEN_CANDY);
     event.getRegistry().register(ModItems.HUNGER_STICK);
     event.getRegistry().register(ModItems.CANDY_CORE);
     event.getRegistry().register(ModItems.CANDY_ROD);

@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 public class ItemRawRockCandy extends BaseFood {
 
     public ItemRawRockCandy() {
-        super("raw_rock_candy", 1, 1);
+        super("raw_rock_candy", 3, 0.3F);
     }
 
     @Override

@@ -11,7 +11,7 @@ import net.minecraftforge.items.ItemHandlerHelper;
 
 public class ItemRockCandy extends BaseFood {
     public ItemRockCandy() {
-        super("rock_candy", 3, 1);
+        super("rock_candy",5,0.6F);
 
     }
 

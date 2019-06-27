@@ -11,13 +11,14 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import sora.rockcandy.RockCandyCreativeTab;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemDebugHungerStick extends BaseItem {
     public ItemDebugHungerStick() {
-        super("hunger_stick", new Properties().group(ItemGroup.FOOD));
+        super("hunger_stick", new Properties().group(RockCandyCreativeTab.getInstance()));
     }
 
     @Override
