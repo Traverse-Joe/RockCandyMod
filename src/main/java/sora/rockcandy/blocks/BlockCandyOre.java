@@ -1,15 +1,10 @@
 package sora.rockcandy.blocks;
 
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
 
 public class BlockCandyOre extends BaseBlock {
     public BlockCandyOre() {
-        super("candy_ore", Material.ROCK);
-        this.setHarvestLevel("pickaxe",1);
-        setSoundType(blockSoundType);
-        setHardness(1.5F);
-        setLightLevel(0.5F);
+        super("candy_ore", Properties.create(Material.ROCK).hardnessAndResistance(1.5F).lightValue(5));
 
     }
 

@@ -1,16 +1,23 @@
 package sora.rockcandy;
 
-import sora.rockcandy.registry.ModItems;
-import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import sora.rockcandy.registry.ModItems;
 
-public class RockCandyCreativeTab extends CreativeTabs {
+public class RockCandyCreativeTab extends ItemGroup {
+
+    private static final RockCandyCreativeTab INSTANCE = new RockCandyCreativeTab();
+
     public RockCandyCreativeTab(){
         super(RockCandy.MODID);
     }
-    @Override
-    public ItemStack getTabIconItem() {
-        return new ItemStack(ModItems.itemRockCandy);
 
+    public static RockCandyCreativeTab getInstance(){
+        return INSTANCE;
+    }
+
+    @Override
+    public ItemStack createIcon() {
+        return new ItemStack(ModItems.ROCK_CANDY);
     }
 }
