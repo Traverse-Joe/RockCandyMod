@@ -1,39 +1,39 @@
-//package sora.rockcandy.registry;
-//
-//import sora.rockcandy.Globals;
-//import sora.rockcandy.RockCandy;
-//import net.minecraftforge.common.MinecraftForge;
-//import net.minecraftforge.common.config.Configuration;
-//import net.minecraftforge.fml.client.event.ConfigChangedEvent;
-//import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-//
-//import java.io.File;
-//
-//public class ConfigHandler {
-//
-//    public static Configuration CONFIG;
-//    private static String DEF_CAT = "Options";
-//
-//    @SubscribeEvent
-//    public void onConfigChange(ConfigChangedEvent.OnConfigChangedEvent e) {
-//        if (e.getModID().equals(RockCandy.MODID)) {
-//            init();
-//        }
-//    }
-//
-//    public static void init() {
-//        if (CONFIG == null) {
-//            CONFIG = new Configuration(new File(Globals.CONFIG_FILE));
-//            MinecraftForge.EVENT_BUS.register(new ConfigHandler());
-//        }
-//
-//        Globals.VEIN_ORE_SIZE = CONFIG.getInt("VeinOreSize", DEF_CAT, 5, 0, 64, "How much Ore Appears in a Vein");
-//        Globals.MAX_Y_LEVEL = CONFIG.getInt("MaxYLevel", DEF_CAT, 64, 0, 255, "Maximum Y Level for Ore Spawn");
-//        Globals.MIN_Y_LEVEL = CONFIG.getInt("MinYLevel", DEF_CAT, 0, 0, 255, "Minimum Y Level for Ore Spawn");
-//        Globals.ORE_RARITY = CONFIG.getInt("Ore Rarity", DEF_CAT, 1, 1, 100, "The higher the number the more common they appear!");
-//
-//        if (CONFIG.hasChanged()) {
-//            CONFIG.save();
-//        }
-//    }
-//}
+package sora.rockcandy.registry;
+
+import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.fml.common.Mod;
+import sora.rockcandy.RockCandy;
+
+import static net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus.MOD;
+
+@Mod.EventBusSubscriber(modid = RockCandy.MODID, bus = MOD)
+public class ConfigHandler {
+
+  public static  class General{
+
+    public final ForgeConfigSpec.ConfigValue<Integer> spawnRate;
+    public final ForgeConfigSpec.ConfigValue<Integer> veinOreSize;
+    public final ForgeConfigSpec.ConfigValue<Integer> maxYLevel;
+    public final ForgeConfigSpec.ConfigValue<Integer> minYLevel;
+
+    General(ForgeConfigSpec.Builder builder){
+      builder.push("General");
+      spawnRate = builder
+          .comment("Spawn Rate")
+          .define("spawnRate", 6);
+      veinOreSize = builder
+          .comment("Ore's Per Vein")
+          .define("veinSize", 6);
+      maxYLevel = builder
+          .comment("Max Y-Level Ore's Spawn")
+          .define("maxYLevel", 64);
+      minYLevel = builder
+          .comment("Min Y-Level Ore's Spawn")
+          .define("minYLevel", 0);
+      builder.pop();
+    }
+  }
+  private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
+  public static final General general = new General(BUILDER);
+  public static final  ForgeConfigSpec configSpec = BUILDER.build();
+}

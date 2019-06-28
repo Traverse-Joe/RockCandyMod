@@ -1,12 +1,11 @@
 {
-   "type": "forge:ore_shapeless",
+   "type": "minecraft:crafting_shapeless",
    "ingredients": [
      {
        "item": "rockcandy:raw_rock_candy"
      },
      {
-       "type":"forge:ore_dict",
-       "ore": "stickWood"
+       "tag": "forge:rods/wooden"
      }
   ],
    "result": {

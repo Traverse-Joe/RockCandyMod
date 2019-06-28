@@ -23,7 +23,7 @@ public class ModItems {
     public static final Item DEEP_BLUE_CANDY = new BaseFood("deep_blue_candy",5, 0.4F, new EffectInstance(Effects.WATER_BREATHING,20 * 120, 0, false, false), 1.0F);
     public static final Item GLOW_CANDY = new BaseFood("glow_candy",5, 0.4F, new EffectInstance(Effects.NIGHT_VISION,20 * 120, 0, false, false), 1.0F);
     public static final Item CLEAR_CANDY = new BaseFood("clear_candy",5, 0.4F, new EffectInstance(Effects.INVISIBILITY,20 * 120, 0, false, false), 1.0F);
-    public static final Item FLOAT_CANDY = new BaseFood("float_candy",5, 0.4F, new EffectInstance(Effects.LEVITATION,20 * 120, 0, false, false), 1.0F);
+    public static final Item FLOAT_CANDY = new BaseFood("float_candy",5, 0.4F, new EffectInstance(Effects.LEVITATION,20 * 10, 0, false, false), 1.0F);
     public static final Item HEALTHY_CANDY = new BaseFood("healthy_candy",5, 0.4F, new EffectInstance(Effects.REGENERATION,20 * 120, 1, false, false), 1.0F);
 
     //Tools
