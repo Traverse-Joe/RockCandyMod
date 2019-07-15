@@ -17,6 +17,7 @@ public class ModItems {
     public static final Item CANDY_ROD = new BaseItem("candy_rod", new Item.Properties().group(RockCandyCreativeTab.getInstance()));
     public static final BlockItem CANDY_ORE = new BlockItemBase(ModBlocks.CANDY_ORE);
     public static final BlockItem CANDY_BLOCK = new BlockItemBase(ModBlocks.CANDY_BLOCK);
+    public static  final Item CANDY_GEM = new ItemCandyGem();
 
     //Special Candy
     public static final Item RED_HOT_CANDY = new BaseFood("red_hot_candy",5, 0.4F, new EffectInstance(Effects.FIRE_RESISTANCE,20 * 120, 0, false, false), 1.0F);

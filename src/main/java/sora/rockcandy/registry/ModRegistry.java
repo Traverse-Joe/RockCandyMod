@@ -1,11 +1,15 @@
 package sora.rockcandy.registry;
 
 import net.minecraft.block.Block;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
+import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.item.crafting.ShapedRecipe;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import sora.rockcandy.RockCandy;
+import sora.rockcandy.enchantments.EnchantmentTypes;
 
 import static net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus.MOD;
 
@@ -34,5 +38,12 @@ public class ModRegistry {
     event.getRegistry().register(ModItems.CLEAR_CANDY);
     event.getRegistry().register(ModItems.FLOAT_CANDY);
     event.getRegistry().register(ModItems.HEALTHY_CANDY);
+    event.getRegistry().register(ModItems.CANDY_GEM);
   }
+
+  @SubscribeEvent
+  public static void onEnchantmentRegister(RegistryEvent.Register<Enchantment> event){
+    event.getRegistry().register(EnchantmentTypes.enchanmentAutoFeed);
+  }
+
 }
