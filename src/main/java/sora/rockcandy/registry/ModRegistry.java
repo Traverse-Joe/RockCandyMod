@@ -39,6 +39,7 @@ public class ModRegistry {
     event.getRegistry().register(ModItems.FLOAT_CANDY);
     event.getRegistry().register(ModItems.HEALTHY_CANDY);
     event.getRegistry().register(ModItems.CANDY_GEM);
+    event.getRegistry().register(ModItems.CANDY_DISPENSER);
   }
 
   @SubscribeEvent

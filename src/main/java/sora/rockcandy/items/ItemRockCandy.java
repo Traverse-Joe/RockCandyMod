@@ -8,10 +8,15 @@ import net.minecraft.item.Items;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.world.World;
 import net.minecraftforge.items.ItemHandlerHelper;
+import sora.rockcandy.registry.ConfigHandler;
 
 public class ItemRockCandy extends BaseFood {
+
+    public static int hunger = ConfigHandler.general.foodLevel.get();
+    public static float saturation = ConfigHandler.general.satLevel.get();
+
     public ItemRockCandy() {
-        super("rock_candy",5,0.6F);
+        super("rock_candy",hunger,saturation);
 
     }
 

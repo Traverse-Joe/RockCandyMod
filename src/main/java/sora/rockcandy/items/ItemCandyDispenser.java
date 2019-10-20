@@ -1,149 +1,107 @@
-//package sora.rockcandy.items;
-//
-//import sora.rockcandy.enchantments.EnchantmentTypes;
-//import sora.rockcandy.registry.ModItems;
-//import net.minecraft.client.util.ITooltipFlag;
-//import net.minecraft.enchantment.Enchantment;
-//import net.minecraft.enchantment.EnchantmentHelper;
-//import net.minecraft.entity.Entity;
-//import net.minecraft.entity.EntityLivingBase;
-//import net.minecraft.entity.player.EntityPlayer;
-//import net.minecraft.init.Items;
-//import net.minecraft.init.SoundEvents;
-//import net.minecraft.item.EnumAction;
-//import net.minecraft.item.ItemStack;
-//import net.minecraft.util.*;
-//import net.minecraft.world.World;
-//import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-//import net.minecraftforge.fml.common.gameevent.TickEvent;
-//import net.minecraftforge.fml.relauncher.Side;
-//import net.minecraftforge.fml.relauncher.SideOnly;
-//import net.minecraftforge.items.CapabilityItemHandler;
-//import net.minecraftforge.items.IItemHandler;
-//
-//import javax.annotation.Nullable;
-//import java.util.List;
-//
-//public class ItemCandyDispenser extends BaseUsableGem {
-//    public ItemCandyDispenser() {
-//        super("candy_dispenser");
-//        this.setMaxDamage(50);
-//
-//    }
-//
-//
-//    @Override
-//    public EnumAction getItemUseAction(ItemStack stack) {
-//        return EnumAction.EAT;
-//    }
-//
-//    @Override
-//    public int getMaxItemUseDuration(ItemStack stack) {
-//        return 8;
-//    }
-//
-//    @Override
-//    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
-//        ActionResult Success = super.onItemRightClick(world, player, hand);
-//
-//        ItemStack itemstack = player.getHeldItem(hand);
-//        if (itemstack.getItemDamage() != itemstack.getMaxDamage() && Success.getType() == EnumActionResult.PASS && player.getFoodStats().needFood()) {
-//            player.setActiveHand(hand);
-//            return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
-//        }
-//        return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
-//    }
-//
-//    @Override
-//    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
-//        if (entityLiving instanceof EntityPlayer) {
-//            EntityPlayer player = (EntityPlayer) entityLiving;
-//            player.getFoodStats().addStats(1, 0.1f);
-//            worldIn.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F);
-//            stack.damageItem(1, player);
-//        }
-//
-//        return stack;
-//    }
-//
-//
-//    @SubscribeEvent
-//    public void onLivingUpdateEvent(TickEvent.PlayerTickEvent event) {
-//        if (!event.side.isServer())
-//            return;
-//        EntityPlayer player = event.player;
-//        IItemHandler playerInventory = player.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.UP);
-//        for (int i = 0; playerInventory.getSlots() > i; ++i) {
-//            ItemStack stack = playerInventory.getStackInSlot(i);
-//            if (stack.getItem() != this)
-//                continue;
-//
-//            if (stack.getItem() instanceof BaseUsableGem && isActive(stack)) {
-//                absorbCandy(stack, playerInventory);
-//            }
-//        }
-//    }
-//
-//    public void absorbCandy(ItemStack rockStack, IItemHandler inventory) {
-//        int damage = rockStack.getItemDamage();
-//        if (damage != 0) {
-//            for (int i = 0; inventory.getSlots() > i; ++i) {
-//                ItemStack stack = inventory.getStackInSlot(i);
-//                if (stack.getItem() == ModItems.itemRawRockCandy) {
-//                    ItemStack candyStack = inventory.extractItem(i, 1, false);
-//                    this.setDamage(rockStack, damage - candyStack.getCount());
-//                    return;
-//
-//                }
-//                else if(stack.getItem() == ModItems.itemHardenRockCandy){
-//                    ItemStack candyStack = inventory.extractItem(i,1,false);
-//                    this.setDamage(rockStack,damage - (candyStack.getCount())-3);
-//                }
-//            }
-//        }
-//    }
-//
-//    @Override
-//    public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-//        EntityPlayer player = (EntityPlayer) entityIn;
-//        if (EnchantmentHelper.getEnchantmentLevel(EnchantmentTypes.enchanmentAutoFeed, stack) > 0) {
-//            if (player.canEat(false)) {
-//                if (stack.isItemStackDamageable() && stack.getMaxDamage()-stack.getItemDamage() > 0) {
-//                    player.getFoodStats().addStats(1, 0.1f);
-//                    stack.damageItem(1, player);
-//                }
-//            }
-//        }
-//    }
-//
-//    @Override
-//    public boolean isEnchantable(ItemStack stack) {
-//        return true;
-//    }
-//
-//    @Override
-//    public int getItemEnchantability() {
-//        return 20;
-//    }
-//
-//    @Override
-//    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
-//        return false;
-//    }
-//
-//    @Override
-//    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-//        if(EnchantmentHelper.getEnchantments(book).containsKey(EnchantmentTypes.enchanmentAutoFeed)){
-//            return true;
-//        }
-//        return false;
-//    }
-//
-//
-//    @SideOnly(Side.CLIENT)
-//    @Override
-//    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-//        tooltip.add(stack.getMaxDamage() - stack.getItemDamage() + "/" + stack.getMaxDamage() + " Charges");
-//        super.addInformation(stack, worldIn, tooltip, flagIn);
-//    }
-//}
+package sora.rockcandy.items;
+
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.UseAction;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.world.World;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
+import sora.rockcandy.registry.ModItems;
+
+import javax.annotation.Nullable;
+import java.util.List;
+
+public class ItemCandyDispenser extends BaseUsableGem {
+    public ItemCandyDispenser() {
+        super("candy_dispenser",50);
+
+
+    }
+
+  @Override
+  public UseAction getUseAction(ItemStack p_77661_1_) {
+    return UseAction.EAT;
+  }
+
+  @Override
+  public int getUseDuration(ItemStack p_77626_1_) {
+    return 8;
+  }
+
+  @Override
+  public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
+    ItemStack stack = playerIn.getHeldItem(handIn);
+    if(stack.getDamage() != stack.getMaxDamage()-1 && playerIn.getFoodStats().needFood()){
+      playerIn.setActiveHand(handIn);
+    }
+    return super.onItemRightClick(worldIn, playerIn, handIn);
+  }
+
+  @Override
+  public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
+    if(entityLiving instanceof PlayerEntity){
+      PlayerEntity player = (PlayerEntity) entityLiving;
+      player.getFoodStats().addStats(3, 0.3F);
+      worldIn.playSound(null,player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS,0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F);
+      stack.damageItem(1, player , (entity) -> {});
+    }
+    return stack;
+  }
+
+
+  @Override
+  public void inventoryTick(ItemStack itemStack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+    if (worldIn.isRemote()) {
+      return;
+    }
+    PlayerEntity player = (PlayerEntity) entityIn;
+    for (int i = 0; player.inventory.getSizeInventory() > i; ++i) {
+      ItemStack stack = player.inventory.getStackInSlot(i);
+      if (stack.getItem() != this) continue;
+      if (stack.getItem() instanceof BaseUsableGem && isActive(stack)) {
+        absorbCandy(stack, player.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).orElse(null));
+      }
+    }
+   /* if (EnchantmentHelper.getEnchantmentLevel(EnchantmentTypes.enchanmentAutoFeed, itemStack) > 0) {
+      if (player.canEat(false)) {
+        if (itemStack.isDamageable() && itemStack.getMaxDamage() - itemStack.getDamage() > 0) {
+          player.getFoodStats().addStats(5,0.6F);
+          itemStack.damageItem(1, player, playerEntity -> {
+          });
+        }*/
+      }
+
+    public void absorbCandy(ItemStack rockStack, IItemHandler inventory) {
+        int damage = rockStack.getDamage();
+        if (damage != 0) {
+            for (int i = 0; inventory.getSlots() > i; ++i) {
+                ItemStack stack = inventory.getStackInSlot(i);
+                if (stack.getItem() == ModItems.RAW_CANDY) {
+                    ItemStack candyStack = inventory.extractItem(i, 1, false);
+                    this.setDamage(rockStack, damage - candyStack.getCount());
+                    return;
+
+                }
+                else if(stack.getItem() == ModItems.HARDEN_CANDY){
+                    ItemStack candyStack = inventory.extractItem(i,1,false);
+                    this.setDamage(rockStack,damage - (candyStack.getCount())-3);
+                }
+            }
+        }
+    }
+
+  @Override
+  public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    tooltip.add(new StringTextComponent( stack.getMaxDamage() - stack.getItem().getDamage(stack)-1 + "/"  + stack.getMaxDamage() + " Charges"));
+    super.addInformation(stack, worldIn, tooltip, flagIn);
+  }
+}

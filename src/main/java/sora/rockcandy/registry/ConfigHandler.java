@@ -15,6 +15,8 @@ public class ConfigHandler {
     public final ForgeConfigSpec.ConfigValue<Integer> veinOreSize;
     public final ForgeConfigSpec.ConfigValue<Integer> maxYLevel;
     public final ForgeConfigSpec.ConfigValue<Integer> minYLevel;
+    public final ForgeConfigSpec.ConfigValue<Integer> foodLevel;
+    public final ForgeConfigSpec.ConfigValue<Float> satLevel;
 
     General(ForgeConfigSpec.Builder builder){
       builder.push("General");
@@ -30,6 +32,12 @@ public class ConfigHandler {
       minYLevel = builder
           .comment("Min Y-Level Ore's Spawn")
           .define("minYLevel", 0);
+      foodLevel = builder
+          .comment("Max Food Value for Rock Candy")
+          .define("foodValue",5);
+      satLevel = builder
+          .comment("Max Saturation for Rock Candy")
+          .define("satValue",0.6F);
       builder.pop();
     }
   }
