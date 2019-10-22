@@ -1,14 +1,19 @@
 package sora.rockcandy.items;
 
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.Hand;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
+import sora.rockcandy.registry.ConfigHandler;
+import sora.rockcandy.registry.ModItems;
+
+import java.util.List;
+
 
 public class ItemHardenRockCandy extends BaseFood {
+
+    public static final int CHANGE_TIME = ConfigHandler.general.changeTime.get() * 20;
     public ItemHardenRockCandy() {
         super("harden_rock_candy", 6, 0.6F);
 
@@ -29,6 +34,27 @@ public class ItemHardenRockCandy extends BaseFood {
         }else{
             return new ActionResult<>(ActionResultType.FAIL, stack);
         }
+    }
+
+    @Override
+    public boolean onEntityItemUpdate(ItemStack stack, ItemEntity entity) {
+        World world = entity.getEntityWorld();
+        if(!world.isRemote() && entity.isInWater()){
+            List<ItemEntity> items = world.getEntitiesWithinAABB(ItemEntity.class,entity.getBoundingBox().expand(1,1,1));
+
+            for(ItemEntity item: items){
+                if(item.getItem().isItemEqual(new ItemStack(ModItems.HARDEN_CANDY))){
+                    int  count = entity.getItem().getCount();
+                    if(entity.getAge() >= CHANGE_TIME){
+                        entity.remove();
+                        item.remove();
+                        world.playSound(entity.getPosition().getX(),entity.getPosition().getY(), entity.getPosition().getZ(), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS,1.0F,1.0F,false);
+                        world.addEntity(new ItemEntity(world, entity.getPosition().getX(),entity.getPosition().getY(), entity.getPosition().getZ(), new ItemStack(ModItems.BLANK_CANDY,count)));
+                    }
+                }
+            }
+        }
+        return  false;
     }
 }
 

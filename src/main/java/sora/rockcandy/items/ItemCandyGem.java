@@ -158,7 +158,7 @@ public class ItemCandyGem extends BaseUsableGem {
 
   @Override
   public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-    tooltip.add(new StringTextComponent(stack.getMaxDamage() - stack.getItem().getDamage(stack)-1 + "/" + stack.getMaxDamage() + " Charges"));
+    tooltip.add(new StringTextComponent(stack.getMaxDamage() - stack.getItem().getDamage(stack) + "/" + stack.getMaxDamage() + " Charges"));
     if (isAutoFeeding(stack)) {
       tooltip.add(new StringTextComponent(TextFormatting.YELLOW + "Auto Feed: " + TextFormatting.GREEN + "Enabled"));
     } else {

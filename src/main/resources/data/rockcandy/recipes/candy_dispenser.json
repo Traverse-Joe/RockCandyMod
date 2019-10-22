@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "crafting_shaped",
   "pattern": [
     "IHI",
     "ICI",
@@ -7,19 +7,17 @@
   ],
   "key": {
     "I": {
-      "item": "minecraft:iron_ingot"
+      "tag": "forge:ingots/iron"
     },
     "H": {
       "item": "rockcandy:harden_rock_candy"
     },
     "C": {
-      "type": "forge:ore_dict",
-      "ore": "chestWood"
+      "tag": "forge:chests/wooden"
     }
   },
   "result": {
     "item": "rockcandy:candy_dispenser",
-    "count": 1,
-    "data": 50
+    "nbt" : "{Damage:50}"
   }
 }

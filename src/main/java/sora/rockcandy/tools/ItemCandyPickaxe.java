@@ -1,12 +1,13 @@
 package sora.rockcandy.tools;
 
-
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.UseAction;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraft.util.*;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
@@ -17,10 +18,9 @@ import sora.rockcandy.registry.Materials;
 import javax.annotation.Nullable;
 import java.util.List;
 
-
-public class ItemCandyClub extends BaseItemWeapon {
-    public ItemCandyClub() {
-        super("candy_club",Materials.CANDY,-3.0F);
+public class ItemCandyPickaxe extends BaseItemPickaxe {
+    public ItemCandyPickaxe() {
+        super("candy_cane_pickaxe",Materials.CANDY, -2.6F);
 
     }
 
@@ -38,7 +38,7 @@ public class ItemCandyClub extends BaseItemWeapon {
   public ActionResult<ItemStack> onItemRightClick(World world, PlayerEntity player, Hand hand) {
     ItemStack stack = player.getHeldItem(hand);
     if(!world.isRemote && player.isSneaking()){
-      if(stack.getDamage() != stack.getMaxDamage() && player.getFoodStats().needFood()){
+      if(stack.getDamage() != stack.getMaxDamage()){
         player.setActiveHand(hand);
       }
       return new ActionResult<>(ActionResultType.SUCCESS,stack);
@@ -50,12 +50,9 @@ public class ItemCandyClub extends BaseItemWeapon {
   public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
     if(entityLiving instanceof PlayerEntity){
       PlayerEntity player = (PlayerEntity) entityLiving;
-      if(!worldIn.isRemote) {
-        player.getFoodStats().addStats(4, 1.0F);
-        worldIn.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F);
-        stack.damageItem(10, player, playerEntity -> {
-        });
-      }
+      player.addPotionEffect(new EffectInstance(Effects.HASTE, 2*30 * 20,1));
+      worldIn.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F );
+      stack.damageItem(25, player, playerEntity -> {});
     }
     return stack;
   }
@@ -66,7 +63,7 @@ public class ItemCandyClub extends BaseItemWeapon {
       tooltip.add(new StringTextComponent(TextFormatting.YELLOW + "Press Shift for more info"));
     }
     else{
-      tooltip.add(new StringTextComponent(TextFormatting.BLUE  + "Shift-Right Click: " + TextFormatting.RED + "Feed's Player"));
+      tooltip.add(new StringTextComponent(TextFormatting.BLUE  + "Shift-Right Click: " + TextFormatting.RED + "Haste Buff"));
     }
     super.addInformation(stack, worldIn, tooltip, flagIn);
   }

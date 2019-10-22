@@ -17,6 +17,7 @@ public class ConfigHandler {
     public final ForgeConfigSpec.ConfigValue<Integer> minYLevel;
     public final ForgeConfigSpec.ConfigValue<Integer> foodLevel;
     public final ForgeConfigSpec.ConfigValue<Float> satLevel;
+    public final ForgeConfigSpec.ConfigValue<Integer> changeTime;
 
     General(ForgeConfigSpec.Builder builder){
       builder.push("General");
@@ -38,6 +39,9 @@ public class ConfigHandler {
       satLevel = builder
           .comment("Max Saturation for Rock Candy")
           .define("satValue",0.6F);
+      changeTime = builder
+          .comment("Time to change Hardended Candy to Blank Candy in seconds.")
+          .define("changeTime", 2);
       builder.pop();
     }
   }

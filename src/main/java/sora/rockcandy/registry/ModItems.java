@@ -6,6 +6,8 @@ import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import sora.rockcandy.RockCandyCreativeTab;
 import sora.rockcandy.items.*;
+import sora.rockcandy.tools.ItemCandyClub;
+import sora.rockcandy.tools.ItemCandyPickaxe;
 
 public class ModItems {
 
@@ -19,6 +21,7 @@ public class ModItems {
     public static final BlockItem CANDY_BLOCK = new BlockItemBase(ModBlocks.CANDY_BLOCK);
     public static  final Item CANDY_GEM = new ItemCandyGem();
     public static final Item CANDY_DISPENSER = new ItemCandyDispenser();
+    public static final Item BLANK_CANDY = new BaseItem("blank_candy",new Item.Properties().group(RockCandyCreativeTab.getInstance()));
 
     //Special Candy
     public static final Item RED_HOT_CANDY = new BaseFood("red_hot_candy",5, 0.4F, new EffectInstance(Effects.FIRE_RESISTANCE,20 * 120, 0, false, false), 1.0F);
@@ -29,9 +32,8 @@ public class ModItems {
     public static final Item HEALTHY_CANDY = new BaseFood("healthy_candy",5, 0.4F, new EffectInstance(Effects.REGENERATION,20 * 120, 1, false, false), 1.0F);
 
     //Tools
-    //public static ItemCandyGem itemCandyGem;
-    //public static ItemCandyClub itemCandyClub;
-    //public static ItemCandyDispenser itemCandyDispenser;
-    //public static ItemCandyPick itemCandyPick;
+
+    public static final Item CANDY_CLUB = new ItemCandyClub();
+   public static final Item CANDY_CANE_PICKAXE = new ItemCandyPickaxe();
 
 }

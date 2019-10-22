@@ -1,15 +1,11 @@
 package sora.rockcandy.registry;
 
 import net.minecraft.block.Block;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.item.crafting.ShapedRecipe;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import sora.rockcandy.RockCandy;
-import sora.rockcandy.enchantments.EnchantmentTypes;
 
 import static net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus.MOD;
 
@@ -17,34 +13,35 @@ import static net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus.MOD;
 public class ModRegistry {
 
   @SubscribeEvent
-  public static void onBlockRegistry(RegistryEvent.Register<Block> event){
-    event.getRegistry().register(ModBlocks.CANDY_ORE);
-    event.getRegistry().register(ModBlocks.CANDY_BLOCK);
+  public static void onBlockRegistry(RegistryEvent.Register<Block> event) {
+    event.getRegistry().registerAll(
+        ModBlocks.CANDY_ORE,
+        ModBlocks.CANDY_BLOCK
+    );
   }
 
   @SubscribeEvent
-  public static void onItemRegistry(RegistryEvent.Register<Item> event){
-    event.getRegistry().register(ModItems.ROCK_CANDY);
-    event.getRegistry().register(ModItems.RAW_CANDY);
-    event.getRegistry().register(ModItems.HARDEN_CANDY);
-    event.getRegistry().register(ModItems.HUNGER_STICK);
-    event.getRegistry().register(ModItems.CANDY_CORE);
-    event.getRegistry().register(ModItems.CANDY_ROD);
-    event.getRegistry().register(ModItems.CANDY_ORE);
-    event.getRegistry().register(ModItems.CANDY_BLOCK);
-    event.getRegistry().register(ModItems.RED_HOT_CANDY);
-    event.getRegistry().register(ModItems.DEEP_BLUE_CANDY);
-    event.getRegistry().register(ModItems.GLOW_CANDY);
-    event.getRegistry().register(ModItems.CLEAR_CANDY);
-    event.getRegistry().register(ModItems.FLOAT_CANDY);
-    event.getRegistry().register(ModItems.HEALTHY_CANDY);
-    event.getRegistry().register(ModItems.CANDY_GEM);
-    event.getRegistry().register(ModItems.CANDY_DISPENSER);
+  public static void onItemRegistry(RegistryEvent.Register<Item> event) {
+    event.getRegistry().registerAll(
+        ModItems.ROCK_CANDY,
+        ModItems.RAW_CANDY,
+        ModItems.HARDEN_CANDY,
+        ModItems.HUNGER_STICK,
+        ModItems.CANDY_CORE,
+        ModItems.CANDY_ROD,
+        ModItems.CANDY_ORE,
+        ModItems.CANDY_BLOCK,
+        ModItems.RED_HOT_CANDY,
+        ModItems.DEEP_BLUE_CANDY,
+        ModItems.GLOW_CANDY,
+        ModItems.CLEAR_CANDY,
+        ModItems.FLOAT_CANDY,
+        ModItems.HEALTHY_CANDY,
+        ModItems.CANDY_GEM,
+        ModItems.CANDY_DISPENSER,
+        ModItems.BLANK_CANDY,
+        ModItems.CANDY_CANE_PICKAXE,
+        ModItems.CANDY_CLUB
+    );
   }
-
-  @SubscribeEvent
-  public static void onEnchantmentRegister(RegistryEvent.Register<Enchantment> event){
-    event.getRegistry().register(EnchantmentTypes.enchanmentAutoFeed);
-  }
-
 }

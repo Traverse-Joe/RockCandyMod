@@ -1,25 +1,16 @@
-//package sora.rockcandy.tools;
-//
-//import sora.rockcandy.RockCandy;
-//import sora.rockcandy.proxy.ClientProxy;
-//import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-//import net.minecraft.item.ItemSword;
-//import net.minecraftforge.client.model.ModelLoader;
-//import net.minecraftforge.fml.common.registry.ForgeRegistries;
-//import net.minecraftforge.fml.relauncher.Side;
-//import net.minecraftforge.fml.relauncher.SideOnly;
-//
-//public class BaseItemWeapon extends ItemSword {
-//    public BaseItemWeapon(String name, ToolMaterial material) {
-//        super(material);
-//        this.setRegistryName(name);
-//        this.setUnlocalizedName(RockCandy.MODID + "." + name);
-//        this.setCreativeTab(ClientProxy.CREATIVE_TAB);
-//        ForgeRegistries.ITEMS.register(this);
-//    }
-//    @SideOnly(Side.CLIENT)
-//    public void initModel() {
-//        ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
-//    }
-//}
-//
+package sora.rockcandy.tools;
+
+import net.minecraft.item.IItemTier;
+import net.minecraft.item.SwordItem;
+import net.minecraft.util.ResourceLocation;
+import sora.rockcandy.RockCandy;
+import sora.rockcandy.RockCandyCreativeTab;
+
+public class BaseItemWeapon extends SwordItem {
+    public BaseItemWeapon(String name, IItemTier material, float speed) {
+        super(material,3,speed,new Properties().group(RockCandyCreativeTab.getInstance()));
+        this.setRegistryName(new ResourceLocation(RockCandy.MODID, name));
+
+    }
+}
+
