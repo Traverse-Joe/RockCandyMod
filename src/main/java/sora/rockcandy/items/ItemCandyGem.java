@@ -77,10 +77,12 @@ public class ItemCandyGem extends BaseUsableGem {
   @SubscribeEvent
   public static void onKeyPressed(InputEvent.KeyInputEvent event) {
     PlayerEntity player = RockCandy.getProxy().getPlayer();
+    if(player == null){
+      return;
+    }
     int slot = findStack(new ItemStack(ModItems.CANDY_GEM),player);
     ItemStack stack = player.inventory.getStackInSlot(slot >= 0 ? slot : 0);
     if (ClientProxy.autoFeedKey != null && ClientProxy.autoFeedKey.isPressed() && !stack.isEmpty()) {
-      PacketAutoFeed.updateAutoFeed(stack,!isAutoFeeding(stack));
       RockCandyPacketHandler.INSTANCE.sendToServer(new PacketAutoFeed(!isAutoFeeding(stack), slot));
       player.sendStatusMessage(new StringTextComponent("Mode Changed"),true);
     }
@@ -157,6 +159,7 @@ public class ItemCandyGem extends BaseUsableGem {
   }
 
   @Override
+  @OnlyIn(Dist.CLIENT)
   public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
     tooltip.add(new StringTextComponent(stack.getMaxDamage() - stack.getItem().getDamage(stack) + "/" + stack.getMaxDamage() + " Charges"));
     if (isAutoFeeding(stack)) {

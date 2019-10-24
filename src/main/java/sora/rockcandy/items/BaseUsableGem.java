@@ -9,6 +9,8 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import sora.rockcandy.RockCandyCreativeTab;
 
 import javax.annotation.Nonnull;
@@ -82,6 +84,7 @@ public class BaseUsableGem extends BaseItem {
     }
 
   @Override
+  @OnlyIn(Dist.CLIENT)
   public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
     if(isActive(stack)){
       tooltip.add(new StringTextComponent(TextFormatting.BLUE + "Is Active: " + TextFormatting.GREEN + "True"));

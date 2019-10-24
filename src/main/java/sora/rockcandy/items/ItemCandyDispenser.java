@@ -13,6 +13,8 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import sora.rockcandy.registry.ModItems;
@@ -100,6 +102,7 @@ public class ItemCandyDispenser extends BaseUsableGem {
     }
 
   @Override
+  @OnlyIn(Dist.CLIENT)
   public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
     tooltip.add(new StringTextComponent( stack.getMaxDamage() - stack.getItem().getDamage(stack) + "/"  + stack.getMaxDamage() + " Charges"));
     super.addInformation(stack, worldIn, tooltip, flagIn);

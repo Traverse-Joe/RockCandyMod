@@ -11,4 +11,6 @@ public interface IProxy {
   default PlayerEntity getPlayer(){
     return null;
   }
+
+  public void CommonSetup();
 }

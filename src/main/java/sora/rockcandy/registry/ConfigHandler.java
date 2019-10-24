@@ -40,7 +40,7 @@ public class ConfigHandler {
           .comment("Max Saturation for Rock Candy")
           .define("satValue",0.6F);
       changeTime = builder
-          .comment("Time to change Hardended Candy to Blank Candy in seconds.")
+          .comment("Time to change Harden Candy to Blank Candy in seconds.")
           .define("changeTime", 2);
       builder.pop();
     }

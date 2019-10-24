@@ -12,6 +12,8 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import sora.rockcandy.registry.Materials;
 
 import javax.annotation.Nullable;
@@ -61,6 +63,7 @@ public class ItemCandyClub extends BaseItemWeapon {
   }
 
   @Override
+  @OnlyIn(Dist.CLIENT)
   public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
     if(!Screen.hasShiftDown()){
       tooltip.add(new StringTextComponent(TextFormatting.YELLOW + "Press Shift for more info"));

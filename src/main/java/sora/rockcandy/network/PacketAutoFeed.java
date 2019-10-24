@@ -32,9 +32,9 @@ public class PacketAutoFeed {
 
   }
 
-  public void handle(Supplier<NetworkEvent.Context> ctx) {
+  public static void handle(PacketAutoFeed autoFeed, Supplier<NetworkEvent.Context> ctx) {
     ctx.get().enqueueWork(() -> {
-      updateAutoFeed(ctx.get().getSender().inventory.getStackInSlot(slot), enableAutoFeed);
+      updateAutoFeed(ctx.get().getSender().inventory.getStackInSlot(autoFeed.slot), autoFeed.enableAutoFeed);
     });
     ctx.get().setPacketHandled(true);
   }

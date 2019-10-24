@@ -24,5 +24,10 @@ public class ClientProxy extends CommonProxy {
     public World getWorld() {
         return Minecraft.getInstance().world;
     }
+
+    @Override
+    public void CommonSetup() {
+        registerKeys();
+    }
 }
 

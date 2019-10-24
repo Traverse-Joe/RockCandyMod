@@ -21,7 +21,6 @@ public class ModItems {
     public static final BlockItem CANDY_BLOCK = new BlockItemBase(ModBlocks.CANDY_BLOCK);
     public static  final Item CANDY_GEM = new ItemCandyGem();
     public static final Item CANDY_DISPENSER = new ItemCandyDispenser();
-    public static final Item BLANK_CANDY = new BaseItem("blank_candy",new Item.Properties().group(RockCandyCreativeTab.getInstance()));
 
     //Special Candy
     public static final Item RED_HOT_CANDY = new BaseFood("red_hot_candy",5, 0.4F, new EffectInstance(Effects.FIRE_RESISTANCE,20 * 120, 0, false, false), 1.0F);
@@ -30,6 +29,7 @@ public class ModItems {
     public static final Item CLEAR_CANDY = new BaseFood("clear_candy",5, 0.4F, new EffectInstance(Effects.INVISIBILITY,20 * 120, 0, false, false), 1.0F);
     public static final Item FLOAT_CANDY = new BaseFood("float_candy",5, 0.4F, new EffectInstance(Effects.LEVITATION,20 * 10, 0, false, false), 1.0F);
     public static final Item HEALTHY_CANDY = new BaseFood("healthy_candy",5, 0.4F, new EffectInstance(Effects.REGENERATION,20 * 120, 1, false, false), 1.0F);
+    public static final Item BLANK_CANDY = new BaseFood("blank_candy",1, 0.25F, new EffectInstance(Effects.NAUSEA,20 * 10, 0, false, false), 0.25F);
 
     //Tools
 

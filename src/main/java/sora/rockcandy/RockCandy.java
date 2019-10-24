@@ -44,7 +44,7 @@ public class RockCandy {
     }
     WorldGenRegistry.init();
     RockCandyPacketHandler.registerMessage();
-    ClientProxy.registerKeys();
+    proxy.CommonSetup();
   }
 
 
