@@ -48,8 +48,8 @@ public class ItemHardenRockCandy extends BaseFood {
                     if(entity.getAge() >= CHANGE_TIME){
                         entity.remove();
                         item.remove();
-                        world.playSound(entity.getPosition().getX(),entity.getPosition().getY(), entity.getPosition().getZ(), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS,1.0F,1.0F,false);
-                        world.addEntity(new ItemEntity(world, entity.getPosition().getX(),entity.getPosition().getY(), entity.getPosition().getZ(), new ItemStack(ModItems.BLANK_CANDY,count)));
+                        world.playSound(entity.getPosX(), entity.getPosY(), entity.getPosZ(), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS,1.0F,1.0F,false);
+                        world.addEntity(new ItemEntity(world, entity.getPosX(),entity.getPosY(), entity.getPosZ(), new ItemStack(ModItems.BLANK_CANDY,count)));
                     }
                 }
             }

@@ -9,7 +9,9 @@ import javax.annotation.Nullable;
 
 public class BlockCandy extends BaseBlock {
     public BlockCandy() {
-        super("candy_block", Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F).lightValue(5));
+        super("candy_block", Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5F).func_235838_a_((state) -> {
+            return 5;
+        }));
     }
 
     @Override

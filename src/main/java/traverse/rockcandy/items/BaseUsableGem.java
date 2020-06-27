@@ -30,7 +30,7 @@ public class BaseUsableGem extends BaseItem {
   public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
     ItemStack stack = playerIn.getHeldItem(handIn);
     if(!worldIn.isRemote && playerIn.isCrouching()){
-      playerIn.world.playSound(null,playerIn.getPosition(), SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 1.0F, 1.0F * ((playerIn.world.rand.nextFloat() - playerIn.world.rand.nextFloat()) * 0.7F + 1.2F));
+      playerIn.world.playSound(null,playerIn.getPosX(),playerIn.getPosY(), playerIn.getPosZ(), SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 1.0F, 1.0F * ((playerIn.world.rand.nextFloat() - playerIn.world.rand.nextFloat()) * 0.7F + 1.2F));
       this.toggleActive(stack);
     }
     return new ActionResult<>(ActionResultType.SUCCESS, stack);

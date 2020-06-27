@@ -1,5 +1,5 @@
 {
   "variants": {
-    "": { "model": "rockcandy:block/candy_ore" }
+    "": { "model": "rockcandy:block/candy_block" }
   }
 }

@@ -1,7 +1,6 @@
 package traverse.rockcandy.tools;
 
 
-import javafx.geometry.Pos;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
@@ -23,9 +22,10 @@ import java.util.List;
 
 public class ItemCandyClub extends BaseItemWeapon {
     public ItemCandyClub() {
-        super("candy_club",Materials.CANDY,-3.0F);
+        super("candy_club",Materials.CANDY, 3.0F);
 
     }
+
 
   @Override
   public UseAction getUseAction(ItemStack stack) {
@@ -55,7 +55,7 @@ public class ItemCandyClub extends BaseItemWeapon {
       PlayerEntity player = (PlayerEntity) entityLiving;
       if(!worldIn.isRemote) {
         player.getFoodStats().addStats(4, 1.0F);
-        worldIn.playSound(null, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ(), SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F);
+        worldIn.playSound(null, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F);
         stack.damageItem(10, player, playerEntity -> {
         });
       }
@@ -66,7 +66,7 @@ public class ItemCandyClub extends BaseItemWeapon {
   @Override
   @OnlyIn(Dist.CLIENT)
   public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-    if(!Screen.hasShiftDown()){
+    if(!Screen.func_231173_s_()){
       tooltip.add(new StringTextComponent(TextFormatting.YELLOW + "Press Shift for more info"));
     }
     else{

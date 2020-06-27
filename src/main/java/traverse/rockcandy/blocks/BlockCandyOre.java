@@ -4,7 +4,9 @@ import net.minecraft.block.material.Material;
 
 public class BlockCandyOre extends BaseBlock {
     public BlockCandyOre() {
-        super("candy_ore", Properties.create(Material.ROCK).hardnessAndResistance(1.5F).lightValue(5));
+        super("candy_ore", Properties.create(Material.ROCK).hardnessAndResistance(1.5F).func_235838_a_((state) -> {
+            return 5;
+        }));
 
     }
 

@@ -53,7 +53,7 @@ public class ItemCandyPickaxe extends BaseItemPickaxe {
     if(entityLiving instanceof PlayerEntity){
       PlayerEntity player = (PlayerEntity) entityLiving;
       player.addPotionEffect(new EffectInstance(Effects.HASTE, 2*30 * 20,1));
-      worldIn.playSound(null, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ(), SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F );
+      worldIn.playSound(null, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F );
       stack.damageItem(25, player, playerEntity -> {});
     }
     return stack;
@@ -62,7 +62,7 @@ public class ItemCandyPickaxe extends BaseItemPickaxe {
   @Override
   @OnlyIn(Dist.CLIENT)
   public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-    if(!Screen.hasShiftDown()){
+    if(!Screen.func_231173_s_()){
       tooltip.add(new StringTextComponent(TextFormatting.YELLOW + "Press Shift for more info"));
     }
     else{

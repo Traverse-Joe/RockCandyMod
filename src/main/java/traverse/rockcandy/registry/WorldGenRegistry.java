@@ -21,7 +21,7 @@ public class WorldGenRegistry {
 
   public static void init() {
     for (Biome biome : Biome.BIOMES) {
-      biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.CANDY_ORE.getDefaultState(), spawnRate)).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(veinsize, minY, 0, maxY))));
+      biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(OreFeatureConfig.FillerBlockType.NATURAL_STONE, ModBlocks.CANDY_ORE.getDefaultState(), spawnRate)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(veinsize, minY, 0, maxY))));
 
     }
   }

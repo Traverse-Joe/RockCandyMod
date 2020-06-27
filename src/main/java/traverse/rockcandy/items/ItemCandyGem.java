@@ -65,7 +65,7 @@ public class ItemCandyGem extends BaseUsableGem {
     if (entityLiving instanceof PlayerEntity) {
       PlayerEntity player = (PlayerEntity) entityLiving;
       player.getFoodStats().addStats(5, 0.6F);
-      worldIn.playSound(null, player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ(), SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F);
+      worldIn.playSound(null, player.getPosX(),player.getPosY(),player.getPosZ(), SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F);
       stack.damageItem(1, player, (entity) -> {
       });
     }
