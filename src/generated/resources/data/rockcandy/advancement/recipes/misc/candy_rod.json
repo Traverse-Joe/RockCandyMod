@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_candy_core": {
+      "conditions": {
+        "items": [
+          {
+            "items": "rockcandy:candy_core"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "rockcandy:candy_rod"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_candy_core"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "rockcandy:candy_rod"
+    ]
+  }
+}

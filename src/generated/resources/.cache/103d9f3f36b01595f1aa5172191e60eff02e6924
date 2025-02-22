@@ -1,0 +1,4 @@
+// 1.21.1	2024-12-22T01:00:34.6098382	Registries
+b964ec1eec461ed35ed372b166b67c7ac1db90fd data/rockcandy/neoforge/biome_modifier/add_ore_candy.json
+0631e156f4469c7ac25afee0835a8e5807b8af89 data/rockcandy/worldgen/configured_feature/ore_candy.json
+b2a76dbe0e71ffceef70d21ae88d150496d796a9 data/rockcandy/worldgen/placed_feature/ore_candy.json

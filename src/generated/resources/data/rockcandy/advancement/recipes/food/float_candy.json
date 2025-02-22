@@ -1,0 +1,65 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blank_candy": {
+      "conditions": {
+        "items": [
+          {
+            "items": "rockcandy:blank_candy"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_harden_candy": {
+      "conditions": {
+        "items": [
+          {
+            "items": "rockcandy:harden_rock_candy"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_nether_wart": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:nether_wart"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_shulker_shell": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:shulker_shell"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "rockcandy:float_candy"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_harden_candy",
+      "has_blank_candy",
+      "has_nether_wart",
+      "has_shulker_shell"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "rockcandy:float_candy"
+    ]
+  }
+}

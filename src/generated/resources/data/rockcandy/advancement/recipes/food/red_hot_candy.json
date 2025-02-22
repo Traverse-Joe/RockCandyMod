@@ -1,0 +1,65 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blank_candy": {
+      "conditions": {
+        "items": [
+          {
+            "items": "rockcandy:blank_candy"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_harden_candy": {
+      "conditions": {
+        "items": [
+          {
+            "items": "rockcandy:harden_rock_candy"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_magma_cream": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:magma_cream"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_nether_wart": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:nether_wart"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "rockcandy:red_hot_candy"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_harden_candy",
+      "has_blank_candy",
+      "has_nether_wart",
+      "has_magma_cream"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "rockcandy:red_hot_candy"
+    ]
+  }
+}

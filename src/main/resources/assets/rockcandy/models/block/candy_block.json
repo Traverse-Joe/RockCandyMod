@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "rockcandy:blocks/candy_block"
+    "all": "rockcandy:block/candy_block"
   }
 }

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "rockcandy:blank_candy"
+    },
+    "H": {
+      "item": "rockcandy:harden_rock_candy"
+    },
+    "N": {
+      "item": "minecraft:nether_wart"
+    },
+    "S": {
+      "item": "minecraft:ghast_tear"
+    }
+  },
+  "pattern": [
+    " H ",
+    "NBN",
+    " S "
+  ],
+  "result": {
+    "count": 4,
+    "id": "rockcandy:healthy_candy"
+  }
+}

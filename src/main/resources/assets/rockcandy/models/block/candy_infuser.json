@@ -1,11 +1,11 @@
 {
 	"credit": "Made with Blockbench, a free, modern block model editor by JannisX11",
 	"textures": {
-		"2": "rockcandy:blocks/candy_infuser_front",
-		"3": "rockcandy:blocks/candy_infuser_side",
-		"4": "rockcandy:blocks/candy_infuser_top",
-		"5": "rockcandy:blocks/candy_infuser_bottom",
-		"particle": "rockcandy:blocks/candy_infuser_front"
+		"2": "rockcandy:block/candy_infuser_front",
+		"3": "rockcandy:block/candy_infuser_side",
+		"4": "rockcandy:block/candy_infuser_top",
+		"5": "rockcandy:block/candy_infuser_bottom",
+		"particle": "rockcandy:block/candy_infuser_front"
 	},
 	"elements": [
 		{

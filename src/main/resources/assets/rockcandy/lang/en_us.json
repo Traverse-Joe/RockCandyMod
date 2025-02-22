@@ -23,5 +23,7 @@
   "key.autofeed": "Toggle AutoFeed",
   "jei.candy_dispenser.desc" : "The Candy Dispenser holds rock candy and hardened rock candy to consume.",
   "jei.candy_gem.desc" : "The Everlasting Gobstopper is a nifty item. It will store sugar into it and can be eaten. It has an Auto Feed Function just turn it on/off when needed",
-  "jei.blank_candy.desc" : "Blank Candy comes from washing all the flavor away from Harden Candy (Drop it in water!!)"
+  "jei.blank_candy.desc" : "Blank Candy comes from washing all the flavor away from Harden Candy (Drop it in water!!)",
+  "rockcandy.configuration.changeTime": "Change Time",
+  "rockcandy.configuration.general": "General"
 }

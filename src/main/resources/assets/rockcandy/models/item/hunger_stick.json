@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "rockcandy:items/hunger_stick"
+    "layer0": "rockcandy:item/hunger_stick"
   }
 }

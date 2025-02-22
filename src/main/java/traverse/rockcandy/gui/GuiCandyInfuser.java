@@ -7,7 +7,7 @@
 //import net.minecraft.util.ResourceLocation;
 //
 //public class GuiCandyInfuser extends GuiContainer {
-//    public static ResourceLocation infuser_res = new ResourceLocation(RockCandy.MODID, "textures/gui/candy_infuser.png");
+//    public static ResourceLocation infuser_res = RockCandy.modLoc("textures/gui/candy_infuser.png");
 //    public int Width = 176;
 //    public int Height = 166;
 //    TileEntityCandyInfuser infuser;

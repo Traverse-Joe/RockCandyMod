@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:dragon_breath"
+    },
+    "D": {
+      "tag": "c:gems/diamond"
+    },
+    "H": {
+      "item": "rockcandy:harden_rock_candy"
+    },
+    "R": {
+      "item": "rockcandy:raw_rock_candy"
+    }
+  },
+  "pattern": [
+    "RBR",
+    "HDH",
+    "RBR"
+  ],
+  "result": {
+    "components": {
+      "minecraft:damage": 1000
+    },
+    "count": 1,
+    "id": "rockcandy:candy_gem"
+  }
+}

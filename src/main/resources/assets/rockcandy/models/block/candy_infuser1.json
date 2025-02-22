@@ -1,8 +1,8 @@
 {
   "parent": "block/orientable",
   "textures": {
-    "top": "rockcandy:blocks/candy_infuser_top",
-    "front": "rockcandy:blocks/candy_infuser_front",
-    "side": "rockcandy:blocks/candy_infuser_side"
+    "top": "rockcandy:block/candy_infuser_top",
+    "front": "rockcandy:block/candy_infuser_front",
+    "side": "rockcandy:block/candy_infuser_side"
   }
 }
