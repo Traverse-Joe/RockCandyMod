@@ -1,23 +1,23 @@
 package traverse.rockcandy;
 
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import traverse.rockcandy.registry.ModItems;
 
-public class RockCandyCreativeTab extends ItemGroup {
+public class RockCandyCreativeTab extends CreativeModeTab {
 
-    private static final RockCandyCreativeTab INSTANCE = new RockCandyCreativeTab();
+	private static final RockCandyCreativeTab INSTANCE = new RockCandyCreativeTab();
 
-    public RockCandyCreativeTab(){
-        super(RockCandy.MODID);
-    }
+	public RockCandyCreativeTab() {
+		super(RockCandy.MODID);
+	}
 
-    public static RockCandyCreativeTab getInstance(){
-        return INSTANCE;
-    }
+	public static RockCandyCreativeTab getInstance() {
+		return INSTANCE;
+	}
 
-    @Override
-    public ItemStack createIcon() {
-        return new ItemStack(ModItems.ROCK_CANDY);
-    }
+	@Override
+	public ItemStack makeIcon() {
+		return new ItemStack(ModItems.ROCK_CANDY.get());
+	}
 }

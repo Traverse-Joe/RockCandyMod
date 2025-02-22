@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "rockcandy:items/candy_gem"
+    "layer0": "rockcandy:item/candy_gem"
   }
 }

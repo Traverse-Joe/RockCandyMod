@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "rockcandy:raw_rock_candy"
+    ]
+  },
+  "criteria": {
+    "has_harden_candy": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "rockcandy:harden_rock_candy"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "rockcandy:raw_rock_candy"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_harden_candy",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "rockcandy:items/candy_club"
+    "layer0": "rockcandy:item/candy_club"
   }
 }

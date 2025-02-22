@@ -1,0 +1,73 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "rockcandy:clear_candy"
+    ]
+  },
+  "criteria": {
+    "has_harden_candy": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "rockcandy:harden_rock_candy"
+            ]
+          }
+        ]
+      }
+    },
+    "has_blank_candy": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "rockcandy:blank_candy"
+            ]
+          }
+        ]
+      }
+    },
+    "has_nether_wart": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:nether_wart"
+            ]
+          }
+        ]
+      }
+    },
+    "has_fermented_spider_eye": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:fermented_spider_eye"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "rockcandy:clear_candy"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_harden_candy",
+      "has_blank_candy",
+      "has_nether_wart",
+      "has_fermented_spider_eye",
+      "has_the_recipe"
+    ]
+  ]
+}

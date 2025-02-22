@@ -1,11 +1,11 @@
 {
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-   "particle": "rockcandy:items/candygem/blob",
-        "0": "rockcandy:items/candygem/candygemblue",
-        "1": "rockcandy:items/candygem/candygemgreen",
-        "2": "rockcandy:items/candygem/candygemred",
-        "3": "rockcandy:items/candygem/candygemyellow"
+   "particle": "rockcandy:item/candygem/blob",
+        "0": "rockcandy:item/candygem/candygemblue",
+        "1": "rockcandy:item/candygem/candygemgreen",
+        "2": "rockcandy:item/candygem/candygemred",
+        "3": "rockcandy:item/candygem/candygemyellow"
     },
     "elements": [
         {

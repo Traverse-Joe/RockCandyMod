@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "rockcandy:candy_core"
+  },
+  "result": {
+    "item": "rockcandy:candy_rod",
+    "count": 2
+  },
+  "experience": 0.6,
+  "cookingtime": 200
+}

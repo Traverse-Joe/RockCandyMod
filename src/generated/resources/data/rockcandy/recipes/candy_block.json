@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "HHH",
+    "HHH",
+    "HHH"
+  ],
+  "key": {
+    "H": {
+      "item": "rockcandy:harden_rock_candy"
+    }
+  },
+  "result": {
+    "item": "rockcandy:candy_block"
+  }
+}

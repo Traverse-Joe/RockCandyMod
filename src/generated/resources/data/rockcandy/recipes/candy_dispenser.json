@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IHI",
+    "ICI",
+    "IHI"
+  ],
+  "key": {
+    "H": {
+      "item": "rockcandy:harden_rock_candy"
+    },
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "C": {
+      "tag": "forge:chests/wooden"
+    }
+  },
+  "result": {
+    "item": "rockcandy:candy_dispenser",
+    "nbt": "{Damage:50}"
+  }
+}

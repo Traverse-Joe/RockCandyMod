@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " H ",
+    "NBN",
+    " S "
+  ],
+  "key": {
+    "H": {
+      "item": "rockcandy:harden_rock_candy"
+    },
+    "B": {
+      "item": "rockcandy:blank_candy"
+    },
+    "N": {
+      "item": "minecraft:nether_wart"
+    },
+    "S": {
+      "item": "minecraft:magma_cream"
+    }
+  },
+  "result": {
+    "item": "rockcandy:red_hot_candy",
+    "count": 4
+  }
+}
