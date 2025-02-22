@@ -30,6 +30,5 @@
     "recipes": [
       "rockcandy:raw_rock_candy"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

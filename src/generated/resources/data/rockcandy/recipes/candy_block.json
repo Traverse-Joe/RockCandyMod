@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "building",
   "key": {
     "H": {
       "item": "rockcandy:harden_rock_candy"
@@ -13,6 +12,5 @@
   ],
   "result": {
     "item": "rockcandy:candy_block"
-  },
-  "show_notification": true
+  }
 }

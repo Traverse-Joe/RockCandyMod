@@ -5,6 +5,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -29,7 +30,7 @@ public class HardenRockCandyItem extends Item {
 		ItemStack stack = playerIn.getItemInHand(handIn);
 		if (playerIn.canEat(false)) {
 			playerIn.startUsingItem(handIn);
-			playerIn.hurt(playerIn.damageSources().generic(), 2);
+			playerIn.hurt(DamageSource.GENERIC, 2);
 			return new InteractionResultHolder<>(InteractionResult.SUCCESS, stack);
 		} else {
 			return new InteractionResultHolder<>(InteractionResult.FAIL, stack);
@@ -38,7 +39,7 @@ public class HardenRockCandyItem extends Item {
 
 	@Override
 	public boolean onEntityItemUpdate(ItemStack stack, ItemEntity entity) {
-		Level level = entity.level();
+		Level level = entity.level;
 		if (!level.isClientSide() && entity.isInWater()) {
 			List<ItemEntity> items = level.getEntitiesOfClass(ItemEntity.class, entity.getBoundingBox().expandTowards(1, 1, 1));
 

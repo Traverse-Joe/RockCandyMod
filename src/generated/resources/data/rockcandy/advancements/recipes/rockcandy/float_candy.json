@@ -13,18 +13,6 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_fermented_spider_eye": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:fermented_spider_eye"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_harden_candy": {
       "conditions": {
         "items": [
@@ -49,9 +37,21 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_shulker_shell": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:shulker_shell"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "rockcandy:clear_candy"
+        "recipe": "rockcandy:float_candy"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -61,14 +61,13 @@
       "has_harden_candy",
       "has_blank_candy",
       "has_nether_wart",
-      "has_fermented_spider_eye",
+      "has_shulker_shell",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "rockcandy:clear_candy"
+      "rockcandy:float_candy"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

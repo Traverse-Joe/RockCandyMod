@@ -1,13 +1,23 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_harden_candy": {
+    "has_raw_candy": {
       "conditions": {
         "items": [
           {
             "items": [
-              "rockcandy:harden_rock_candy"
+              "rockcandy:raw_rock_candy"
             ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_stick": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:rods/wooden"
           }
         ]
       },
@@ -15,21 +25,21 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "rockcandy:candy_block"
+        "recipe": "rockcandy:rock_candy"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_harden_candy",
+      "has_raw_candy",
+      "has_stick",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "rockcandy:candy_block"
+      "rockcandy:rock_candy"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

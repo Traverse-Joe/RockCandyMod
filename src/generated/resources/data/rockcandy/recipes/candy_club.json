@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "H": {
       "item": "rockcandy:harden_rock_candy"
@@ -16,6 +15,5 @@
   ],
   "result": {
     "item": "rockcandy:candy_club"
-  },
-  "show_notification": true
+  }
 }

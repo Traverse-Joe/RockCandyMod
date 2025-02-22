@@ -1,11 +1,13 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_diamond": {
+    "has_blank_candy": {
       "conditions": {
         "items": [
           {
-            "tag": "forge:gems/diamond"
+            "items": [
+              "rockcandy:blank_candy"
+            ]
           }
         ]
       },
@@ -23,12 +25,24 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_sugar": {
+    "has_nether_wart": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:sugar"
+              "minecraft:nether_wart"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_prismarine_shard": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:prismarine_shard"
             ]
           }
         ]
@@ -37,7 +51,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "rockcandy:candy_core"
+        "recipe": "rockcandy:deep_blue_candy"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -45,15 +59,15 @@
   "requirements": [
     [
       "has_harden_candy",
-      "has_diamond",
-      "has_sugar",
+      "has_blank_candy",
+      "has_nether_wart",
+      "has_prismarine_shard",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "rockcandy:candy_core"
+      "rockcandy:deep_blue_candy"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

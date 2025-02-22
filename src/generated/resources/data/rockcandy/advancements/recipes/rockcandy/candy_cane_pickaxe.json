@@ -1,22 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_diamond": {
-      "conditions": {
-        "items": [
-          {
-            "tag": "forge:gems/diamond"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_dragon_breath": {
+    "has_candy_rod": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:dragon_breath"
+              "rockcandy:candy_rod"
             ]
           }
         ]
@@ -35,21 +25,9 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_raw_candy": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "rockcandy:raw_rock_candy"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "rockcandy:candy_gem"
+        "recipe": "rockcandy:candy_cane_pickaxe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -57,16 +35,13 @@
   "requirements": [
     [
       "has_harden_candy",
-      "has_raw_candy",
-      "has_diamond",
-      "has_dragon_breath",
+      "has_candy_rod",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "rockcandy:candy_gem"
+      "rockcandy:candy_cane_pickaxe"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

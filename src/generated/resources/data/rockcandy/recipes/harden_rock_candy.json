@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "R": {
       "item": "rockcandy:raw_rock_candy"
@@ -13,6 +12,5 @@
   "result": {
     "count": 2,
     "item": "rockcandy:harden_rock_candy"
-  },
-  "show_notification": true
+  }
 }

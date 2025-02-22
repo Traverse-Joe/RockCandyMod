@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_raw_candy": {
+    "has_harden_candy": {
       "conditions": {
         "items": [
           {
             "items": [
-              "rockcandy:raw_rock_candy"
+              "rockcandy:harden_rock_candy"
             ]
           }
         ]
@@ -15,21 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "rockcandy:harden_rock_candy"
+        "recipe": "rockcandy:raw_rock_candy2"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_raw_candy",
+      "has_harden_candy",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "rockcandy:harden_rock_candy"
+      "rockcandy:raw_rock_candy2"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

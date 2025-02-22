@@ -17,7 +17,7 @@ import traverse.rockcandy.network.RockCandyPacketHandler;
 import traverse.rockcandy.registry.ConfigHandler;
 import traverse.rockcandy.registry.ModBlocks;
 import traverse.rockcandy.registry.ModItems;
-import traverse.rockcandy.registry.ModTabs;
+import traverse.rockcandy.registry.worldgen.WorldGenRegistry;
 
 @Mod(RockCandy.MODID)
 public class RockCandy {
@@ -32,7 +32,6 @@ public class RockCandy {
 
 		ModBlocks.BLOCKS.register(eventBus);
 		ModItems.ITEMS.register(eventBus);
-		ModTabs.CREATIVE_MODE_TABS.register(eventBus);
 
 		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
 			eventBus.addListener(ClientHandler::onRegisterKeyMappings);
@@ -41,6 +40,7 @@ public class RockCandy {
 
 	private void setup(final FMLCommonSetupEvent event) {
 		RockCandyPacketHandler.registerMessage();
+		WorldGenRegistry.init();
 	}
 
 

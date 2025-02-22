@@ -1,17 +1,20 @@
 package traverse.rockcandy.datagen.data;
 
-import net.minecraft.data.PackOutput;
-import net.minecraft.data.loot.BlockLootSubProvider;
+import com.google.common.collect.ImmutableList;
+import com.mojang.datafixers.util.Pair;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.LootTable.Builder;
 import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
@@ -21,26 +24,27 @@ import traverse.rockcandy.registry.ModItems;
 import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class ModLootProvider extends LootTableProvider {
-	public ModLootProvider(PackOutput packOutput) {
-		super(packOutput, Set.of(), List.of(
-				new SubProviderEntry(CandyBlocks::new, LootContextParamSets.BLOCK)
-		));
+	public ModLootProvider(DataGenerator gen) {
+		super(gen);
 	}
 
-	private static class CandyBlocks extends BlockLootSubProvider {
+	@Override
+	protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, Builder>>>, LootContextParamSet>> getTables() {
+		return ImmutableList.of(
+				Pair.of(CandyBlocks::new, LootContextParamSets.BLOCK)
+		);
+	}
 
-		protected CandyBlocks() {
-			super(Set.of(), FeatureFlags.REGISTRY.allFlags());
-		}
+	private static class CandyBlocks extends BlockLoot {
 
 		@Override
-		protected void generate() {
-			this.add(ModBlocks.CANDY_ORE.get(), (block) -> {
-				return createCandyOreDrops(block);
-			});
+		protected void addTables() {
+			this.add(ModBlocks.CANDY_ORE.get(), this::createCandyOreDrops);
 
 			this.dropSelf(ModBlocks.CANDY_BLOCK.get());
 		}

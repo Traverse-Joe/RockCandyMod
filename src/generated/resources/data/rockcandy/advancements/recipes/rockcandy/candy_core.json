@@ -1,25 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_blank_candy": {
+    "has_diamond": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "rockcandy:blank_candy"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_golden_carrot": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:golden_carrot"
-            ]
+            "tag": "forge:gems/diamond"
           }
         ]
       },
@@ -37,12 +23,12 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_nether_wart": {
+    "has_sugar": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:nether_wart"
+              "minecraft:sugar"
             ]
           }
         ]
@@ -51,7 +37,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "rockcandy:glow_candy"
+        "recipe": "rockcandy:candy_core"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -59,16 +45,14 @@
   "requirements": [
     [
       "has_harden_candy",
-      "has_blank_candy",
-      "has_nether_wart",
-      "has_golden_carrot",
+      "has_diamond",
+      "has_sugar",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "rockcandy:glow_candy"
+      "rockcandy:candy_core"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

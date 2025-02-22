@@ -13,6 +13,18 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_ghast_tear": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:ghast_tear"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_harden_candy": {
       "conditions": {
         "items": [
@@ -37,21 +49,9 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_prismarine_shard": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:prismarine_shard"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "rockcandy:deep_blue_candy"
+        "recipe": "rockcandy:healthy_candy"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -61,14 +61,13 @@
       "has_harden_candy",
       "has_blank_candy",
       "has_nether_wart",
-      "has_prismarine_shard",
+      "has_ghast_tear",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "rockcandy:deep_blue_candy"
+      "rockcandy:healthy_candy"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
