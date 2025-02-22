@@ -6,6 +6,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -19,7 +20,7 @@ import traverse.rockcandy.registry.ModItems;
 import static net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus.FORGE;
 
 
-@Mod.EventBusSubscriber(bus = FORGE, modid = RockCandy.MODID)
+@Mod.EventBusSubscriber(bus = FORGE, modid = RockCandy.MODID, value = Dist.CLIENT)
 public class KeyHandler {
 	public static final KeyMapping autoFeedKey = new KeyMapping("key.autofeed", GLFW.GLFW_KEY_Z, "key.categories.rockcandy");
 
