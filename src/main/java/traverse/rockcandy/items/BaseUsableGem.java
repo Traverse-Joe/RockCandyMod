@@ -1,7 +1,6 @@
 package traverse.rockcandy.items;
 
 import net.minecraft.ChatFormatting;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -16,7 +15,6 @@ import net.minecraft.world.level.Level;
 import traverse.rockcandy.registry.ModDataComponents;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.util.List;
 
 public class BaseUsableGem extends Item {
