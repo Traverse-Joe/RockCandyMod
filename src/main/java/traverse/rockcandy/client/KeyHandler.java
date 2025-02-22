@@ -6,6 +6,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.EventBusSubscriber.Bus;
@@ -18,7 +19,7 @@ import traverse.rockcandy.network.AutoFeedPayload;
 import traverse.rockcandy.registry.ModItems;
 
 
-@EventBusSubscriber(bus = Bus.GAME, modid = RockCandy.MODID)
+@EventBusSubscriber(bus = Bus.GAME, modid = RockCandy.MODID, value = Dist.CLIENT)
 public class KeyHandler {
 	public static final KeyMapping autoFeedKey = new KeyMapping("key.autofeed", GLFW.GLFW_KEY_Z, "key.categories.rockcandy");
 
