@@ -2,7 +2,7 @@ package traverse.rockcandy.client;
 
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -25,7 +25,7 @@ public class KeyHandler {
 	public static final KeyMapping autoFeedKey = new KeyMapping("key.autofeed", GLFW.GLFW_KEY_Z, "key.categories.rockcandy");
 
 	@SubscribeEvent
-	public static void onKeyPressed(InputEvent.KeyInputEvent event) {
+	public static void onKeyPressed(InputEvent.Key event) {
 		Player player = Minecraft.getInstance().player;
 		if (player == null) {
 			return;
@@ -34,7 +34,7 @@ public class KeyHandler {
 		ItemStack stack = player.getInventory().getItem(Math.max(slot, 0));
 		if (autoFeedKey != null && autoFeedKey.consumeClick() && !stack.isEmpty()) {
 			RockCandyPacketHandler.INSTANCE.sendToServer(new PacketAutoFeed(!CandyGemItem.isAutoFeeding(stack), slot));
-			player.displayClientMessage(new TextComponent("Mode Changed"), true);
+			player.displayClientMessage(Component.literal("Mode Changed"), true);
 		}
 	}
 

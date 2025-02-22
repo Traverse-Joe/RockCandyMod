@@ -1,25 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "rockcandy:clear_candy"
-    ]
-  },
   "criteria": {
-    "has_harden_candy": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "rockcandy:harden_rock_candy"
-            ]
-          }
-        ]
-      }
-    },
     "has_blank_candy": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -28,10 +10,34 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_ghast_tear": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:ghast_tear"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_harden_candy": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "rockcandy:harden_rock_candy"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "has_nether_wart": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -40,25 +46,14 @@
             ]
           }
         ]
-      }
-    },
-    "has_fermented_spider_eye": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:fermented_spider_eye"
-            ]
-          }
-        ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "rockcandy:clear_candy"
-      }
+        "recipe": "rockcandy:healthy_candy"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
@@ -66,8 +61,14 @@
       "has_harden_candy",
       "has_blank_candy",
       "has_nether_wart",
-      "has_fermented_spider_eye",
+      "has_ghast_tear",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "rockcandy:healthy_candy"
+    ]
+  },
+  "sends_telemetry_event": false
 }

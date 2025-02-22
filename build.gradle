@@ -61,15 +61,15 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
     maven {
-        url = "https://dvs1.progwml6.com/files/maven"
-    }
-    maven {
         url = "https://maven.blamejared.com"
     }
 }
 
 dependencies {
-    modImplementation "mezz.jei:jei-${mc_version}:${jei_version}"
+    compileOnly modCompileOnly("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
+    compileOnly modCompileOnly("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
+
+    runtimeOnly modRuntimeOnly("mezz.jei:jei-${mc_version}-forge:${jei_version}")
 }
 
 tasks.named('jar', Jar).configure {

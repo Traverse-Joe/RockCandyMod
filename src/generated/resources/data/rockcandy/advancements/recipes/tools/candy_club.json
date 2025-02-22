@@ -1,25 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "rockcandy:candy_club"
-    ]
-  },
   "criteria": {
-    "has_harden_candy": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "rockcandy:harden_rock_candy"
-            ]
-          }
-        ]
-      }
-    },
     "has_candy_rod": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -28,13 +10,26 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_harden_candy": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "rockcandy:harden_rock_candy"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
       "conditions": {
         "recipe": "rockcandy:candy_club"
-      }
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
@@ -43,5 +38,11 @@
       "has_candy_rod",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "rockcandy:candy_club"
+    ]
+  },
+  "sends_telemetry_event": false
 }

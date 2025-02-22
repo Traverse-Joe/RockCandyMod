@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": "rockcandy:ore_candy",
+  "step": "underground_ores"
+}

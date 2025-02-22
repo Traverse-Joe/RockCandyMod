@@ -1,13 +1,17 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "rockcandy:candy_core"
-    ]
-  },
   "criteria": {
+    "has_diamond": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:gems/diamond"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_harden_candy": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -16,20 +20,10 @@
             ]
           }
         ]
-      }
-    },
-    "has_diamond": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "tag": "forge:gems/diamond"
-          }
-        ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "has_sugar": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -38,13 +32,14 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
       "conditions": {
         "recipe": "rockcandy:candy_core"
-      }
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
@@ -54,5 +49,11 @@
       "has_sugar",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "rockcandy:candy_core"
+    ]
+  },
+  "sends_telemetry_event": false
 }

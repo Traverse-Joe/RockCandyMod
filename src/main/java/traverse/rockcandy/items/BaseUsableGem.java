@@ -3,7 +3,6 @@ package traverse.rockcandy.items;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -30,7 +29,7 @@ public class BaseUsableGem extends Item {
 	public InteractionResultHolder<ItemStack> use(Level level, Player playerIn, InteractionHand handIn) {
 		ItemStack stack = playerIn.getItemInHand(handIn);
 		if (!level.isClientSide && playerIn.isCrouching()) {
-			playerIn.level.playSound(null, playerIn.getX(), playerIn.getY(), playerIn.getZ(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 1.0F, ((playerIn.level.random.nextFloat() - playerIn.level.random.nextFloat()) * 0.7F + 1.2F));
+			playerIn.level().playSound(null, playerIn.getX(), playerIn.getY(), playerIn.getZ(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 1.0F, ((playerIn.level().random.nextFloat() - playerIn.level().random.nextFloat()) * 0.7F + 1.2F));
 			this.toggleActive(stack);
 		}
 		return new InteractionResultHolder<>(InteractionResult.SUCCESS, stack);
@@ -86,9 +85,9 @@ public class BaseUsableGem extends Item {
 	@Override
 	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flagIn) {
 		if (isActive(stack)) {
-			tooltip.add(new TextComponent(ChatFormatting.BLUE + "Is Active: " + ChatFormatting.GREEN + "True"));
+			tooltip.add(Component.literal(ChatFormatting.BLUE + "Is Active: " + ChatFormatting.GREEN + "True"));
 		} else {
-			tooltip.add(new TextComponent(ChatFormatting.BLUE + "Is Active: " + ChatFormatting.RED + "False"));
+			tooltip.add(Component.literal(ChatFormatting.BLUE + "Is Active: " + ChatFormatting.RED + "False"));
 		}
 		super.appendHoverText(stack, level, tooltip, flagIn);
 	}

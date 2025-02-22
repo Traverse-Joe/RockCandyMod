@@ -17,7 +17,7 @@ import traverse.rockcandy.network.RockCandyPacketHandler;
 import traverse.rockcandy.registry.ConfigHandler;
 import traverse.rockcandy.registry.ModBlocks;
 import traverse.rockcandy.registry.ModItems;
-import traverse.rockcandy.registry.worldgen.WorldGenRegistry;
+import traverse.rockcandy.registry.ModTabs;
 
 @Mod(RockCandy.MODID)
 public class RockCandy {
@@ -29,15 +29,13 @@ public class RockCandy {
 		eventBus.addListener(this::setup);
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigHandler.configSpec);
 		MinecraftForge.EVENT_BUS.register(this);
-		MinecraftForge.EVENT_BUS.register(new WorldGenRegistry());
 
 		ModBlocks.BLOCKS.register(eventBus);
 		ModItems.ITEMS.register(eventBus);
-		WorldGenRegistry.CONFIGURED_FEATURES.register(eventBus);
-		WorldGenRegistry.PLACED_FEATURES.register(eventBus);
+		ModTabs.CREATIVE_MODE_TABS.register(eventBus);
 
 		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
-			eventBus.addListener(ClientHandler::onClientSetup);
+			eventBus.addListener(ClientHandler::onRegisterKeyMappings);
 		});
 	}
 

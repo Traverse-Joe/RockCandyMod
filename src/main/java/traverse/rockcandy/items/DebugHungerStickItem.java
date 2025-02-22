@@ -2,7 +2,6 @@ package traverse.rockcandy.items;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
@@ -30,7 +29,7 @@ public class DebugHungerStickItem extends Item {
 
 	@Override
 	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flagIn) {
-		tooltip.add(new TextComponent(ChatFormatting.DARK_RED + "DEBUG ITEM -- GIVES PLAYER ZERO HUNGER"));
+		tooltip.add(Component.literal(ChatFormatting.DARK_RED + "DEBUG ITEM -- GIVES PLAYER ZERO HUNGER"));
 		super.appendHoverText(stack, level, tooltip, flagIn);
 	}
 }

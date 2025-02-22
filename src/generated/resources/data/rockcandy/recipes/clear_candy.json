@@ -1,16 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " H ",
-    "NBN",
-    " S "
-  ],
+  "category": "misc",
   "key": {
-    "H": {
-      "item": "rockcandy:harden_rock_candy"
-    },
     "B": {
       "item": "rockcandy:blank_candy"
+    },
+    "H": {
+      "item": "rockcandy:harden_rock_candy"
     },
     "N": {
       "item": "minecraft:nether_wart"
@@ -19,8 +15,14 @@
       "item": "minecraft:fermented_spider_eye"
     }
   },
+  "pattern": [
+    " H ",
+    "NBN",
+    " S "
+  ],
   "result": {
-    "item": "rockcandy:clear_candy",
-    "count": 4
-  }
+    "count": 4,
+    "item": "rockcandy:clear_candy"
+  },
+  "show_notification": true
 }

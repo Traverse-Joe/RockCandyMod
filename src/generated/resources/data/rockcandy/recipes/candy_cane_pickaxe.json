@@ -1,10 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "HHH",
-    " R ",
-    " R "
-  ],
+  "category": "equipment",
   "key": {
     "H": {
       "item": "rockcandy:harden_rock_candy"
@@ -13,7 +9,13 @@
       "item": "rockcandy:candy_rod"
     }
   },
+  "pattern": [
+    "HHH",
+    " R ",
+    " R "
+  ],
   "result": {
     "item": "rockcandy:candy_cane_pickaxe"
-  }
+  },
+  "show_notification": true
 }

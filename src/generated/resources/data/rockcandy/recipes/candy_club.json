@@ -1,10 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " H ",
-    " H ",
-    " R "
-  ],
+  "category": "equipment",
   "key": {
     "H": {
       "item": "rockcandy:harden_rock_candy"
@@ -13,7 +9,13 @@
       "item": "rockcandy:candy_rod"
     }
   },
+  "pattern": [
+    " H ",
+    " H ",
+    " R "
+  ],
   "result": {
     "item": "rockcandy:candy_club"
-  }
+  },
+  "show_notification": true
 }

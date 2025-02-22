@@ -10,9 +10,10 @@ import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.CriterionTriggerInstance;
 import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeBuilder;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -29,6 +30,7 @@ import java.util.Set;
 import java.util.function.Consumer;
 
 public class ShapedNBTRecipeBuilder implements RecipeBuilder {
+	private final RecipeCategory category;
 	private final ItemStack result;
 	private final int count;
 	private final List<String> rows = Lists.newArrayList();
@@ -37,17 +39,18 @@ public class ShapedNBTRecipeBuilder implements RecipeBuilder {
 	@Nullable
 	private String group;
 
-	public ShapedNBTRecipeBuilder(ItemStack stack, int count) {
+	public ShapedNBTRecipeBuilder(RecipeCategory category, ItemStack stack, int count) {
+		this.category = category;
 		this.result = stack;
 		this.count = count;
 	}
 
-	public static ShapedNBTRecipeBuilder shaped(ItemStack stack) {
-		return shaped(stack, 1);
+	public static ShapedNBTRecipeBuilder shaped(RecipeCategory category, ItemStack stack) {
+		return shaped(category, stack, 1);
 	}
 
-	public static ShapedNBTRecipeBuilder shaped(ItemStack stack, int count) {
-		return new ShapedNBTRecipeBuilder(stack, count);
+	public static ShapedNBTRecipeBuilder shaped(RecipeCategory category, ItemStack stack, int count) {
+		return new ShapedNBTRecipeBuilder(category, stack, count);
 	}
 
 	public ShapedNBTRecipeBuilder define(Character p_206417_, TagKey<Item> p_206418_) {
@@ -95,7 +98,7 @@ public class ShapedNBTRecipeBuilder implements RecipeBuilder {
 	public void save(Consumer<FinishedRecipe> p_126141_, ResourceLocation p_126142_) {
 		this.ensureValid(p_126142_);
 		this.advancement.parent(new ResourceLocation("recipes/root")).addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(p_126142_)).rewards(AdvancementRewards.Builder.recipe(p_126142_)).requirements(RequirementsStrategy.OR);
-		p_126141_.accept(new ShapedNBTRecipeBuilder.Result(p_126142_, this.result, this.count, this.group == null ? "" : this.group, this.rows, this.key, this.advancement, new ResourceLocation(p_126142_.getNamespace(), "recipes/" + this.result.getItem().getItemCategory().getRecipeFolderName() + "/" + p_126142_.getPath())));
+		p_126141_.accept(new ShapedNBTRecipeBuilder.Result(p_126142_, this.result, this.count, this.group == null ? "" : this.group, this.rows, this.key, this.advancement, new ResourceLocation(p_126142_.getNamespace(), "recipes/" + this.category.getFolderName() + "/" + p_126142_.getPath())));
 	}
 
 	private void ensureValid(ResourceLocation p_126144_) {
@@ -167,9 +170,9 @@ public class ShapedNBTRecipeBuilder implements RecipeBuilder {
 
 			jsonObject.add("key", jsonobject);
 			JsonObject resultObject = new JsonObject();
-			resultObject.addProperty("item", Registry.ITEM.getKey(this.result.getItem()).toString());
+			resultObject.addProperty("item", BuiltInRegistries.ITEM.getKey(this.result.getItem()).toString());
 			if (this.result.getTag() == null) {
-				throw new IllegalStateException("result " + this.result.getItem().getItemCategory().getRecipeFolderName() + " does not have a tag, please use the regular ShapedRecipeBuilder");
+				throw new IllegalStateException("result " + this.result.getItem().getDescriptionId() + " does not have a tag, please use the regular ShapedRecipeBuilder");
 			}
 			resultObject.addProperty("nbt", this.result.getTag().toString());
 			if (this.count > 1) {

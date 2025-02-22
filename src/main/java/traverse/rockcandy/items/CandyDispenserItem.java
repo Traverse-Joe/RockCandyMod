@@ -1,7 +1,6 @@
 package traverse.rockcandy.items;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -13,7 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.IItemHandler;
 import traverse.rockcandy.registry.ModItems;
 
@@ -67,7 +66,7 @@ public class CandyDispenserItem extends BaseUsableGem {
 				ItemStack stack = player.getInventory().getItem(i);
 				if (stack.getItem() != this) continue;
 				if (stack.getItem() instanceof BaseUsableGem && isActive(stack)) {
-					absorbCandy(stack, player.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).orElse(null));
+					absorbCandy(stack, player.getCapability(ForgeCapabilities.ITEM_HANDLER).orElse(null));
 				}
 			}
 		}
@@ -100,7 +99,7 @@ public class CandyDispenserItem extends BaseUsableGem {
 
 	@Override
 	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flagIn) {
-		tooltip.add(new TextComponent(stack.getMaxDamage() - stack.getItem().getDamage(stack) + "/" + stack.getMaxDamage() + " Charges"));
+		tooltip.add(Component.literal(stack.getMaxDamage() - stack.getItem().getDamage(stack) + "/" + stack.getMaxDamage() + " Charges"));
 		super.appendHoverText(stack, level, tooltip, flagIn);
 	}
 }

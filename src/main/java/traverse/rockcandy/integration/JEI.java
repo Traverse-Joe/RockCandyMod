@@ -4,7 +4,7 @@ import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.registration.IRecipeRegistration;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import traverse.rockcandy.RockCandy;
@@ -20,9 +20,9 @@ public class JEI implements IModPlugin {
 
 	@Override
 	public void registerRecipes(IRecipeRegistration registration) {
-		registration.addIngredientInfo(new ItemStack(ModItems.CANDY_GEM.get()), VanillaTypes.ITEM_STACK, new TranslatableComponent("jei.candy_gem.desc"));
-		registration.addIngredientInfo(new ItemStack(ModItems.CANDY_DISPENSER.get()), VanillaTypes.ITEM_STACK, new TranslatableComponent("jei.candy_dispenser.desc"));
-		registration.addIngredientInfo(new ItemStack(ModItems.BLANK_CANDY.get()), VanillaTypes.ITEM_STACK, new TranslatableComponent("jei.blank_candy.desc"));
+		registration.addIngredientInfo(new ItemStack(ModItems.CANDY_GEM.get()), VanillaTypes.ITEM_STACK, Component.translatable("jei.candy_gem.desc"));
+		registration.addIngredientInfo(new ItemStack(ModItems.CANDY_DISPENSER.get()), VanillaTypes.ITEM_STACK, Component.translatable("jei.candy_dispenser.desc"));
+		registration.addIngredientInfo(new ItemStack(ModItems.BLANK_CANDY.get()), VanillaTypes.ITEM_STACK, Component.translatable("jei.blank_candy.desc"));
 	}
 }
 
