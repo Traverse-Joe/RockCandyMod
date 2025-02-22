@@ -1,16 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " H ",
-    "NBN",
-    " S "
-  ],
+  "category": "misc",
   "key": {
-    "H": {
-      "item": "rockcandy:harden_rock_candy"
-    },
     "B": {
       "item": "rockcandy:blank_candy"
+    },
+    "H": {
+      "item": "rockcandy:harden_rock_candy"
     },
     "N": {
       "item": "minecraft:nether_wart"
@@ -19,8 +15,14 @@
       "item": "minecraft:prismarine_shard"
     }
   },
+  "pattern": [
+    " H ",
+    "NBN",
+    " S "
+  ],
   "result": {
-    "item": "rockcandy:deep_blue_candy",
-    "count": 4
-  }
+    "count": 4,
+    "item": "rockcandy:deep_blue_candy"
+  },
+  "show_notification": true
 }

@@ -1,47 +1,17 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "rockcandy:candy_gem"
-    ]
-  },
   "criteria": {
-    "has_harden_candy": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "rockcandy:harden_rock_candy"
-            ]
-          }
-        ]
-      }
-    },
-    "has_raw_candy": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "rockcandy:raw_rock_candy"
-            ]
-          }
-        ]
-      }
-    },
     "has_diamond": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "tag": "forge:gems/diamond"
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "has_dragon_breath": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -50,13 +20,38 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_harden_candy": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "rockcandy:harden_rock_candy"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_raw_candy": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "rockcandy:raw_rock_candy"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
       "conditions": {
         "recipe": "rockcandy:candy_gem"
-      }
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
@@ -67,5 +62,11 @@
       "has_dragon_breath",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "rockcandy:candy_gem"
+    ]
+  },
+  "sends_telemetry_event": true
 }

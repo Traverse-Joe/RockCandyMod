@@ -1,11 +1,10 @@
 package traverse.rockcandy.client;
 
-import net.minecraftforge.client.ClientRegistry;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 
 public class ClientHandler {
 
-	public static void onClientSetup(final FMLClientSetupEvent event) {
-		ClientRegistry.registerKeyBinding(KeyHandler.autoFeedKey);
+	public static void onRegisterKeyMappings(final RegisterKeyMappingsEvent event) {
+		event.register(KeyHandler.autoFeedKey);
 	}
 }

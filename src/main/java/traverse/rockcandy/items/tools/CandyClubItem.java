@@ -4,7 +4,6 @@ package traverse.rockcandy.items.tools;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -66,9 +65,9 @@ public class CandyClubItem extends SwordItem {
 	@Override
 	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flagIn) {
 		if (!Screen.hasShiftDown()) {
-			tooltip.add(new TextComponent(ChatFormatting.YELLOW + "Press Shift for more info"));
+			tooltip.add(Component.literal(ChatFormatting.YELLOW + "Press Shift for more info"));
 		} else {
-			tooltip.add(new TextComponent(ChatFormatting.BLUE + "Shift-Right Click: " + ChatFormatting.RED + "Feed's Player"));
+			tooltip.add(Component.literal(ChatFormatting.BLUE + "Shift-Right Click: " + ChatFormatting.RED + "Feed's Player"));
 		}
 		super.appendHoverText(stack, level, tooltip, flagIn);
 	}

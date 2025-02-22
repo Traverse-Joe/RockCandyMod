@@ -1,7 +1,8 @@
 package traverse.rockcandy.datagen.data;
 
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
@@ -18,20 +19,20 @@ import traverse.rockcandy.registry.ModItems;
 import java.util.function.Consumer;
 
 public class ModRecipeProvider extends RecipeProvider {
-	public ModRecipeProvider(DataGenerator gen) {
-		super(gen);
+	public ModRecipeProvider(PackOutput packOutput) {
+		super(packOutput);
 	}
 
 	@Override
-	protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
-		ShapedRecipeBuilder.shaped(ModItems.CANDY_BLOCK.get())
+	protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModItems.CANDY_BLOCK.get())
 				.pattern("HHH")
 				.pattern("HHH")
 				.pattern("HHH")
 				.define('H', ModItems.HARDEN_CANDY.get())
 				.unlockedBy("has_harden_candy", has(ModItems.HARDEN_CANDY.get())).save(consumer);
 
-		ShapedRecipeBuilder.shaped(ModItems.CANDY_CANE_PICKAXE.get())
+		ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.CANDY_CANE_PICKAXE.get())
 				.pattern("HHH")
 				.pattern(" R ")
 				.pattern(" R ")
@@ -40,7 +41,7 @@ public class ModRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_harden_candy", has(ModItems.HARDEN_CANDY.get()))
 				.unlockedBy("has_candy_rod", has(ModItems.CANDY_ROD.get())).save(consumer);
 
-		ShapedRecipeBuilder.shaped(ModItems.CANDY_CLUB.get())
+		ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.CANDY_CLUB.get())
 				.pattern(" H ")
 				.pattern(" H ")
 				.pattern(" R ")
@@ -49,7 +50,7 @@ public class ModRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_harden_candy", has(ModItems.HARDEN_CANDY.get()))
 				.unlockedBy("has_candy_rod", has(ModItems.CANDY_ROD.get())).save(consumer);
 
-		ShapedRecipeBuilder.shaped(ModItems.CANDY_CORE.get())
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CANDY_CORE.get())
 				.pattern("HSH")
 				.pattern("SDS")
 				.pattern("HSH")
@@ -62,7 +63,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
 		ItemStack dispenserStack = new ItemStack(ModItems.CANDY_DISPENSER.get());
 		dispenserStack.setDamageValue(50);
-		ShapedNBTRecipeBuilder.shaped(dispenserStack)
+		ShapedNBTRecipeBuilder.shaped(RecipeCategory.MISC, dispenserStack)
 				.pattern("IHI")
 				.pattern("ICI")
 				.pattern("IHI")
@@ -75,7 +76,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
 		ItemStack gemStack = new ItemStack(ModItems.CANDY_GEM.get());
 		gemStack.setDamageValue(1000);
-		ShapedNBTRecipeBuilder.shaped(gemStack)
+		ShapedNBTRecipeBuilder.shaped(RecipeCategory.MISC, gemStack)
 				.pattern("RBR")
 				.pattern("HDH")
 				.pattern("RBR")
@@ -88,13 +89,13 @@ public class ModRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_diamond", has(Tags.Items.GEMS_DIAMOND))
 				.unlockedBy("has_dragon_breath", has(Items.DRAGON_BREATH)).save(consumer);
 
-		MultipleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.CANDY_CORE.get()),
+		MultipleCookingRecipeBuilder.smelting(RecipeCategory.MISC, Ingredient.of(ModItems.CANDY_CORE.get()),
 						ModItems.CANDY_ROD.get(), 0.6F, 200)
 				.withCount(2)
 				.unlockedBy("has_candy_core", has(ModItems.CANDY_CORE.get()))
 				.save(consumer);
 
-		ShapedRecipeBuilder.shaped(ModItems.CLEAR_CANDY.get(), 4)
+		ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.CLEAR_CANDY.get(), 4)
 				.pattern(" H ")
 				.pattern("NBN")
 				.pattern(" S ")
@@ -107,7 +108,7 @@ public class ModRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_nether_wart", has(Items.NETHER_WART))
 				.unlockedBy("has_fermented_spider_eye", has(Items.FERMENTED_SPIDER_EYE)).save(consumer);
 
-		ShapedRecipeBuilder.shaped(ModItems.DEEP_BLUE_CANDY.get(), 4)
+		ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.DEEP_BLUE_CANDY.get(), 4)
 				.pattern(" H ")
 				.pattern("NBN")
 				.pattern(" S ")
@@ -120,7 +121,7 @@ public class ModRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_nether_wart", has(Items.NETHER_WART))
 				.unlockedBy("has_prismarine_shard", has(Items.PRISMARINE_SHARD)).save(consumer);
 
-		ShapedRecipeBuilder.shaped(ModItems.FLOAT_CANDY.get(), 4)
+		ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.FLOAT_CANDY.get(), 4)
 				.pattern(" H ")
 				.pattern("NBN")
 				.pattern(" S ")
@@ -133,7 +134,7 @@ public class ModRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_nether_wart", has(Items.NETHER_WART))
 				.unlockedBy("has_shulker_shell", has(Items.SHULKER_SHELL)).save(consumer);
 
-		ShapedRecipeBuilder.shaped(ModItems.GLOW_CANDY.get(), 4)
+		ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.GLOW_CANDY.get(), 4)
 				.pattern(" H ")
 				.pattern("NBN")
 				.pattern(" S ")
@@ -146,7 +147,7 @@ public class ModRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_nether_wart", has(Items.NETHER_WART))
 				.unlockedBy("has_golden_carrot", has(Items.GOLDEN_CARROT)).save(consumer);
 
-		ShapedRecipeBuilder.shaped(ModItems.HEALTHY_CANDY.get(), 4)
+		ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.HEALTHY_CANDY.get(), 4)
 				.pattern(" H ")
 				.pattern("NBN")
 				.pattern(" S ")
@@ -159,7 +160,7 @@ public class ModRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_nether_wart", has(Items.NETHER_WART))
 				.unlockedBy("has_ghast_tear", has(Items.GHAST_TEAR)).save(consumer);
 
-		ShapedRecipeBuilder.shaped(ModItems.RED_HOT_CANDY.get(), 4)
+		ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.RED_HOT_CANDY.get(), 4)
 				.pattern(" H ")
 				.pattern("NBN")
 				.pattern(" S ")
@@ -172,22 +173,22 @@ public class ModRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_nether_wart", has(Items.NETHER_WART))
 				.unlockedBy("has_magma_cream", has(Items.MAGMA_CREAM)).save(consumer);
 
-		ShapedRecipeBuilder.shaped(ModItems.HARDEN_CANDY.get(), 2)
+		ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.HARDEN_CANDY.get(), 2)
 				.pattern("RR")
 				.pattern("RR")
 				.define('R', ModItems.RAW_CANDY.get())
 				.unlockedBy("has_raw_candy", has(ModItems.RAW_CANDY.get())).save(consumer);
 
-		ShapelessRecipeBuilder.shapeless(ModItems.RAW_CANDY.get(), 2)
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.RAW_CANDY.get(), 2)
 				.requires(ModItems.HARDEN_CANDY.get())
 				.unlockedBy("has_harden_candy", has(ModItems.HARDEN_CANDY.get())).save(consumer);
 
-		ShapelessRecipeBuilder.shapeless(ModItems.RAW_CANDY.get(), 9)
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.RAW_CANDY.get(), 9)
 				.requires(ModItems.CANDY_BLOCK.get())
 				.unlockedBy("has_harden_candy", has(ModItems.HARDEN_CANDY.get()))
 				.save(consumer, new ResourceLocation(RockCandy.MODID, "raw_rock_candy2"));
 
-		ShapelessRecipeBuilder.shapeless(ModItems.ROCK_CANDY.get())
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.ROCK_CANDY.get())
 				.requires(ModItems.RAW_CANDY.get())
 				.requires(Tags.Items.RODS_WOODEN)
 				.unlockedBy("has_raw_candy", has(ModItems.RAW_CANDY.get()))

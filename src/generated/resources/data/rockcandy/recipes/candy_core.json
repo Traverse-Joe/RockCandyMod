@@ -1,22 +1,24 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "HSH",
-    "SDS",
-    "HSH"
-  ],
+  "category": "misc",
   "key": {
+    "D": {
+      "tag": "forge:gems/diamond"
+    },
     "H": {
       "item": "rockcandy:harden_rock_candy"
     },
     "S": {
       "item": "minecraft:sugar"
-    },
-    "D": {
-      "tag": "forge:gems/diamond"
     }
   },
+  "pattern": [
+    "HSH",
+    "SDS",
+    "HSH"
+  ],
   "result": {
     "item": "rockcandy:candy_core"
-  }
+  },
+  "show_notification": true
 }

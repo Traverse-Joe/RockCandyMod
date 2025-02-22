@@ -1,16 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "RR",
-    "RR"
-  ],
+  "category": "misc",
   "key": {
     "R": {
       "item": "rockcandy:raw_rock_candy"
     }
   },
+  "pattern": [
+    "RR",
+    "RR"
+  ],
   "result": {
-    "item": "rockcandy:harden_rock_candy",
-    "count": 2
-  }
+    "count": 2,
+    "item": "rockcandy:harden_rock_candy"
+  },
+  "show_notification": true
 }

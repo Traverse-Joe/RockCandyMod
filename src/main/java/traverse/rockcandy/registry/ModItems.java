@@ -6,7 +6,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import traverse.rockcandy.RockCandy;
-import traverse.rockcandy.RockCandyCreativeTab;
 import traverse.rockcandy.items.CandyDispenserItem;
 import traverse.rockcandy.items.CandyGemItem;
 import traverse.rockcandy.items.DebugHungerStickItem;
@@ -46,6 +45,6 @@ public class ModItems {
 	public static final RegistryObject<Item> CANDY_CANE_PICKAXE = ITEMS.register("candy_cane_pickaxe", () -> new CandyPickaxeItem(itemBuilder()));
 
 	private static Item.Properties itemBuilder() {
-		return new Item.Properties().tab(RockCandyCreativeTab.getInstance());
+		return new Item.Properties();
 	}
 }
