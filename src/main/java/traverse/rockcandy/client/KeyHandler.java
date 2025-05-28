@@ -26,14 +26,18 @@ public class KeyHandler {
 	@SubscribeEvent
 	public static void onKeyPressed(InputEvent.Key event) {
 		Player player = Minecraft.getInstance().player;
-		if (player == null) {
+		if (player == null || autoFeedKey == null) {
 			return;
 		}
-		int slot = findItem(ModItems.CANDY_GEM.get(), player);
-		ItemStack stack = player.getInventory().getItem(Math.max(slot, 0));
-		if (autoFeedKey != null && autoFeedKey.consumeClick() && !stack.isEmpty()) {
-			PacketDistributor.sendToServer(new AutoFeedPayload(!CandyGemItem.isAutoFeeding(stack), slot));
-			player.displayClientMessage(Component.literal("Mode Changed"), true);
+		if (autoFeedKey.consumeClick()) {
+			int slot = findItem(ModItems.CANDY_GEM.get(), player);
+			if (slot != -1) {
+				ItemStack stack = player.getInventory().getItem(slot);
+				if (!stack.isEmpty()) {
+					PacketDistributor.sendToServer(new AutoFeedPayload(!CandyGemItem.isAutoFeeding(stack), slot));
+					player.displayClientMessage(Component.literal("Mode Changed"), true);
+				}
+			}
 		}
 	}
 
