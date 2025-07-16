@@ -7,15 +7,14 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemUseAnimation;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import traverse.rockcandy.registry.ModTiers;
 
@@ -23,14 +22,12 @@ import java.util.List;
 
 public class CandyPickaxeItem extends PickaxeItem {
 	public CandyPickaxeItem(Properties properties) {
-		super(ModTiers.CANDY, properties
-				.attributes(PickaxeItem.createAttributes(ModTiers.CANDY, 1, -2.6F))
-		);
+		super(ModTiers.CANDY, 1, -2.6F, properties);
 	}
 
 	@Override
-	public UseAnim getUseAnimation(ItemStack stack) {
-		return UseAnim.EAT;
+	public ItemUseAnimation getUseAnimation(ItemStack stack) {
+		return ItemUseAnimation.EAT;
 	}
 
 	@Override
@@ -39,15 +36,15 @@ public class CandyPickaxeItem extends PickaxeItem {
 	}
 
 	@Override
-	public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+	public InteractionResult use(Level level, Player player, InteractionHand hand) {
 		ItemStack stack = player.getItemInHand(hand);
 		if (!level.isClientSide && player.isCrouching()) {
 			if (stack.getDamageValue() != stack.getMaxDamage()) {
 				player.startUsingItem(hand);
 			}
-			return new InteractionResultHolder<>(InteractionResult.SUCCESS, stack);
+			return InteractionResult.SUCCESS;
 		}
-		return new InteractionResultHolder<>(InteractionResult.FAIL, stack);
+		return InteractionResult.FAIL;
 	}
 
 	@Override

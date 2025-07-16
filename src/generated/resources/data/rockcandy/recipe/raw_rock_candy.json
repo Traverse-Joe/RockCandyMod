@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "rockcandy:harden_rock_candy"
-    }
+    "rockcandy:harden_rock_candy"
   ],
   "result": {
     "count": 2,

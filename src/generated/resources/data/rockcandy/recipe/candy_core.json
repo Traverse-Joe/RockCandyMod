@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "D": {
-      "tag": "c:gems/diamond"
-    },
-    "H": {
-      "item": "rockcandy:harden_rock_candy"
-    },
-    "S": {
-      "item": "minecraft:sugar"
-    }
+    "D": "#c:gems/diamond",
+    "H": "rockcandy:harden_rock_candy",
+    "S": "minecraft:sugar"
   },
   "pattern": [
     "HSH",

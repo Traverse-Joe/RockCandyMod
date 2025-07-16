@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "H": {
-      "item": "rockcandy:harden_rock_candy"
-    }
+    "H": "rockcandy:harden_rock_candy"
   },
   "pattern": [
     "HHH",

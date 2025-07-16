@@ -19,6 +19,7 @@ import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import org.jetbrains.annotations.NotNull;
 import traverse.rockcandy.registry.ModBlocks;
 import traverse.rockcandy.registry.ModItems;
 
@@ -41,9 +42,7 @@ public class ModLootProvider extends LootTableProvider {
 
 		@Override
 		protected void generate() {
-			this.add(ModBlocks.CANDY_ORE.get(), (block) -> {
-				return createCandyOreDrops(block);
-			});
+			this.add(ModBlocks.CANDY_ORE.get(), this::createCandyOreDrops);
 
 			this.dropSelf(ModBlocks.CANDY_BLOCK.get());
 		}
@@ -56,6 +55,7 @@ public class ModLootProvider extends LootTableProvider {
 							.apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)))));
 		}
 
+		@NotNull
 		@Override
 		protected Iterable<Block> getKnownBlocks() {
 			return (Iterable<Block>) ModBlocks.BLOCKS.getEntries().stream().map(holder -> (Block)holder.value())::iterator;
@@ -63,7 +63,8 @@ public class ModLootProvider extends LootTableProvider {
 	}
 
 	@Override
-	protected void validate(WritableRegistry<LootTable> writableregistry, ValidationContext validationcontext, Collector problemreporter$collector) {
-		super.validate(writableregistry, validationcontext, problemreporter$collector);
+	protected void validate(@NotNull WritableRegistry<LootTable> writableregistry,
+	                        @NotNull ValidationContext validationcontext, @NotNull Collector collector) {
+		super.validate(writableregistry, validationcontext, collector);
 	}
 }

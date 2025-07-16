@@ -5,14 +5,14 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemUseAnimation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.items.IItemHandler;
@@ -27,8 +27,8 @@ public class CandyGemItem extends BaseUsableGem {
 	}
 
 	@Override
-	public UseAnim getUseAnimation(ItemStack stack) {
-		return UseAnim.EAT;
+	public ItemUseAnimation getUseAnimation(ItemStack stack) {
+		return ItemUseAnimation.EAT;
 	}
 
 	@Override
@@ -37,12 +37,12 @@ public class CandyGemItem extends BaseUsableGem {
 	}
 
 	@Override
-	public InteractionResultHolder<ItemStack> use(Level level, Player playerIn, InteractionHand handIn) {
-		ItemStack stack = playerIn.getItemInHand(handIn);
+	public InteractionResult use(Level level, Player playerIn, InteractionHand hand) {
+		ItemStack stack = playerIn.getItemInHand(hand);
 		if (stack.getDamageValue() != stack.getMaxDamage() - 1 && playerIn.getFoodData().needsFood()) {
-			playerIn.startUsingItem(handIn);
+			playerIn.startUsingItem(hand);
 		}
-		return super.use(level, playerIn, handIn);
+		return super.use(level, playerIn, hand);
 	}
 
 	@Override

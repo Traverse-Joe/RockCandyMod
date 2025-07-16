@@ -1,38 +1,43 @@
 package traverse.rockcandy.datagen.data;
 
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.common.Tags;
+import org.jetbrains.annotations.NotNull;
 import traverse.rockcandy.RockCandy;
 import traverse.rockcandy.registry.ModItems;
 
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends RecipeProvider {
-	public ModRecipeProvider(PackOutput packOutput, CompletableFuture<Provider> lookupProvider) {
-		super(packOutput, lookupProvider);
+	public ModRecipeProvider(HolderLookup.Provider provider, RecipeOutput recipeOutput) {
+		super(provider, recipeOutput);
 	}
 
 	@Override
-	protected void buildRecipes(RecipeOutput output, HolderLookup.Provider provider) {
-		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModItems.CANDY_BLOCK.get())
+	protected void buildRecipes() {
+		HolderGetter<Item> items = registries.lookupOrThrow(Registries.ITEM);
+
+		shaped(RecipeCategory.BUILDING_BLOCKS, ModItems.CANDY_BLOCK.get())
 				.pattern("HHH")
 				.pattern("HHH")
 				.pattern("HHH")
 				.define('H', ModItems.HARDEN_CANDY.get())
 				.unlockedBy("has_harden_candy", has(ModItems.HARDEN_CANDY.get())).save(output);
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.CANDY_CANE_PICKAXE.get())
+		shaped(RecipeCategory.TOOLS, ModItems.CANDY_CANE_PICKAXE.get())
 				.pattern("HHH")
 				.pattern(" R ")
 				.pattern(" R ")
@@ -41,7 +46,7 @@ public class ModRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_harden_candy", has(ModItems.HARDEN_CANDY.get()))
 				.unlockedBy("has_candy_rod", has(ModItems.CANDY_ROD.get())).save(output);
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.CANDY_CLUB.get())
+		shaped(RecipeCategory.TOOLS, ModItems.CANDY_CLUB.get())
 				.pattern(" H ")
 				.pattern(" H ")
 				.pattern(" R ")
@@ -50,7 +55,7 @@ public class ModRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_harden_candy", has(ModItems.HARDEN_CANDY.get()))
 				.unlockedBy("has_candy_rod", has(ModItems.CANDY_ROD.get())).save(output);
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CANDY_CORE.get())
+		shaped(RecipeCategory.MISC, ModItems.CANDY_CORE.get())
 				.pattern("HSH")
 				.pattern("SDS")
 				.pattern("HSH")
@@ -63,7 +68,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
 		ItemStack dispenserStack = new ItemStack(ModItems.CANDY_DISPENSER.get());
 		dispenserStack.setDamageValue(50);
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, dispenserStack)
+		ShapedRecipeBuilder.shaped(items, RecipeCategory.MISC, dispenserStack)
 				.pattern("IHI")
 				.pattern("ICI")
 				.pattern("IHI")
@@ -76,7 +81,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
 		ItemStack gemStack = new ItemStack(ModItems.CANDY_GEM.get());
 		gemStack.setDamageValue(1000);
-		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, gemStack)
+		ShapedRecipeBuilder.shaped(items, RecipeCategory.MISC, gemStack)
 				.pattern("RBR")
 				.pattern("HDH")
 				.pattern("RBR")
@@ -94,7 +99,7 @@ public class ModRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_candy_core", has(ModItems.CANDY_CORE.get()))
 				.save(output);
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.CLEAR_CANDY.get(), 4)
+		shaped(RecipeCategory.FOOD, ModItems.CLEAR_CANDY.get(), 4)
 				.pattern(" H ")
 				.pattern("NBN")
 				.pattern(" S ")
@@ -107,7 +112,7 @@ public class ModRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_nether_wart", has(Items.NETHER_WART))
 				.unlockedBy("has_fermented_spider_eye", has(Items.FERMENTED_SPIDER_EYE)).save(output);
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.DEEP_BLUE_CANDY.get(), 4)
+		shaped(RecipeCategory.FOOD, ModItems.DEEP_BLUE_CANDY.get(), 4)
 				.pattern(" H ")
 				.pattern("NBN")
 				.pattern(" S ")
@@ -120,7 +125,7 @@ public class ModRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_nether_wart", has(Items.NETHER_WART))
 				.unlockedBy("has_prismarine_shard", has(Items.PRISMARINE_SHARD)).save(output);
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.FLOAT_CANDY.get(), 4)
+		shaped(RecipeCategory.FOOD, ModItems.FLOAT_CANDY.get(), 4)
 				.pattern(" H ")
 				.pattern("NBN")
 				.pattern(" S ")
@@ -133,7 +138,7 @@ public class ModRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_nether_wart", has(Items.NETHER_WART))
 				.unlockedBy("has_shulker_shell", has(Items.SHULKER_SHELL)).save(output);
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.GLOW_CANDY.get(), 4)
+		shaped(RecipeCategory.FOOD, ModItems.GLOW_CANDY.get(), 4)
 				.pattern(" H ")
 				.pattern("NBN")
 				.pattern(" S ")
@@ -146,7 +151,7 @@ public class ModRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_nether_wart", has(Items.NETHER_WART))
 				.unlockedBy("has_golden_carrot", has(Items.GOLDEN_CARROT)).save(output);
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.HEALTHY_CANDY.get(), 4)
+		shaped(RecipeCategory.FOOD, ModItems.HEALTHY_CANDY.get(), 4)
 				.pattern(" H ")
 				.pattern("NBN")
 				.pattern(" S ")
@@ -159,7 +164,7 @@ public class ModRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_nether_wart", has(Items.NETHER_WART))
 				.unlockedBy("has_ghast_tear", has(Items.GHAST_TEAR)).save(output);
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.RED_HOT_CANDY.get(), 4)
+		shaped(RecipeCategory.FOOD, ModItems.RED_HOT_CANDY.get(), 4)
 				.pattern(" H ")
 				.pattern("NBN")
 				.pattern(" S ")
@@ -172,26 +177,45 @@ public class ModRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_nether_wart", has(Items.NETHER_WART))
 				.unlockedBy("has_magma_cream", has(Items.MAGMA_CREAM)).save(output);
 
-		ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.HARDEN_CANDY.get(), 2)
+		shaped(RecipeCategory.FOOD, ModItems.HARDEN_CANDY.get(), 2)
 				.pattern("RR")
 				.pattern("RR")
 				.define('R', ModItems.RAW_CANDY.get())
 				.unlockedBy("has_raw_candy", has(ModItems.RAW_CANDY.get())).save(output);
 
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.RAW_CANDY.get(), 2)
+		shapeless(RecipeCategory.FOOD, ModItems.RAW_CANDY.get(), 2)
 				.requires(ModItems.HARDEN_CANDY.get())
 				.unlockedBy("has_harden_candy", has(ModItems.HARDEN_CANDY.get())).save(output);
 
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.RAW_CANDY.get(), 9)
+		shapeless(RecipeCategory.FOOD, ModItems.RAW_CANDY.get(), 9)
 				.requires(ModItems.CANDY_BLOCK.get())
 				.unlockedBy("has_harden_candy", has(ModItems.HARDEN_CANDY.get()))
-				.save(output, RockCandy.modLoc("raw_rock_candy2"));
+				.save(output, RockCandy.modLoc("raw_rock_candy2").toString());
 
-		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.ROCK_CANDY.get())
+		shapeless(RecipeCategory.FOOD, ModItems.ROCK_CANDY.get())
 				.requires(ModItems.RAW_CANDY.get())
 				.requires(Tags.Items.RODS_WOODEN)
 				.unlockedBy("has_raw_candy", has(ModItems.RAW_CANDY.get()))
 				.unlockedBy("has_stick", has(Tags.Items.RODS_WOODEN)).save(output);
 
+	}
+
+	public static class Runner extends RecipeProvider.Runner {
+		public Runner(PackOutput output, CompletableFuture<Provider> completableFuture) {
+			super(output, completableFuture);
+		}
+
+		@NotNull
+		@Override
+		protected RecipeProvider createRecipeProvider(@NotNull HolderLookup.Provider provider,
+		                                              @NotNull RecipeOutput recipeOutput) {
+			return new ModRecipeProvider(provider, recipeOutput);
+		}
+
+		@NotNull
+		@Override
+		public String getName() {
+			return "Rock Candy Recipes";
+		}
 	}
 }

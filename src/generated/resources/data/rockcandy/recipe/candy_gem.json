@@ -2,18 +2,10 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "minecraft:dragon_breath"
-    },
-    "D": {
-      "tag": "c:gems/diamond"
-    },
-    "H": {
-      "item": "rockcandy:harden_rock_candy"
-    },
-    "R": {
-      "item": "rockcandy:raw_rock_candy"
-    }
+    "B": "minecraft:dragon_breath",
+    "D": "#c:gems/diamond",
+    "H": "rockcandy:harden_rock_candy",
+    "R": "rockcandy:raw_rock_candy"
   },
   "pattern": [
     "RBR",

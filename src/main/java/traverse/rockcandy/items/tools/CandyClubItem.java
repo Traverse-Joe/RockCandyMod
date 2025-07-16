@@ -8,13 +8,12 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemUseAnimation;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import traverse.rockcandy.registry.ModTiers;
 
@@ -22,14 +21,12 @@ import java.util.List;
 
 public class CandyClubItem extends SwordItem {
 	public CandyClubItem(Properties properties) {
-		super(ModTiers.CANDY, properties
-				.attributes(SwordItem.createAttributes(ModTiers.CANDY, 3, 3.0F))
-		);
+		super(ModTiers.CANDY, 3, 3.0F, properties);
 	}
 
 	@Override
-	public UseAnim getUseAnimation(ItemStack stack) {
-		return UseAnim.EAT;
+	public ItemUseAnimation getUseAnimation(ItemStack stack) {
+		return ItemUseAnimation.EAT;
 	}
 
 	@Override
@@ -38,15 +35,15 @@ public class CandyClubItem extends SwordItem {
 	}
 
 	@Override
-	public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+	public InteractionResult use(Level level, Player player, InteractionHand hand) {
 		ItemStack stack = player.getItemInHand(hand);
 		if (!level.isClientSide && player.isCrouching()) {
 			if (stack.getDamageValue() != stack.getMaxDamage() && player.getFoodData().needsFood()) {
 				player.startUsingItem(hand);
 			}
-			return new InteractionResultHolder<>(InteractionResult.SUCCESS, stack);
+			return InteractionResult.SUCCESS;
 		}
-		return new InteractionResultHolder<>(InteractionResult.FAIL, stack);
+		return InteractionResult.FAIL;
 	}
 
 	@Override

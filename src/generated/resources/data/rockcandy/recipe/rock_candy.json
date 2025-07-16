@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "rockcandy:raw_rock_candy"
-    },
-    {
-      "tag": "c:rods/wooden"
-    }
+    "rockcandy:raw_rock_candy",
+    "#c:rods/wooden"
   ],
   "result": {
     "count": 1,

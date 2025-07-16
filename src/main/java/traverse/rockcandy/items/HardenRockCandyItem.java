@@ -4,7 +4,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -25,14 +24,13 @@ public class HardenRockCandyItem extends Item {
 	}
 
 	@Override
-	public InteractionResultHolder<ItemStack> use(Level level, Player playerIn, InteractionHand handIn) {
-		ItemStack stack = playerIn.getItemInHand(handIn);
+	public InteractionResult use(Level level, Player playerIn, InteractionHand hand) {
 		if (playerIn.canEat(false)) {
-			playerIn.startUsingItem(handIn);
+			playerIn.startUsingItem(hand);
 			playerIn.hurt(playerIn.damageSources().generic(), 2);
-			return new InteractionResultHolder<>(InteractionResult.SUCCESS, stack);
+			return InteractionResult.SUCCESS;
 		} else {
-			return new InteractionResultHolder<>(InteractionResult.FAIL, stack);
+			return InteractionResult.FAIL;
 		}
 	}
 
