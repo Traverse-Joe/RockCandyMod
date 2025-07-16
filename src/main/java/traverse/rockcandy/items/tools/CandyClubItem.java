@@ -10,18 +10,20 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUseAnimation;
-import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
 import traverse.rockcandy.registry.ModTiers;
 
 import java.util.List;
+import java.util.function.Consumer;
 
-public class CandyClubItem extends SwordItem {
+public class CandyClubItem extends Item {
 	public CandyClubItem(Properties properties) {
-		super(ModTiers.CANDY, 3, 3.0F, properties);
+		super(properties.sword(ModTiers.CANDY, 3, 3.0F));
 	}
 
 	@Override
@@ -59,12 +61,12 @@ public class CandyClubItem extends SwordItem {
 	}
 
 	@Override
-	public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag tooltipFlag) {
+	public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay tooltipDisplay, Consumer<Component> tooltipAdder, TooltipFlag flag) {
 		if (!Screen.hasShiftDown()) {
-			tooltip.add(Component.literal(ChatFormatting.YELLOW + "Press Shift for more info"));
+			tooltipAdder.accept(Component.literal(ChatFormatting.YELLOW + "Press Shift for more info"));
 		} else {
-			tooltip.add(Component.literal(ChatFormatting.BLUE + "Shift-Right Click: " + ChatFormatting.RED + "Feed's Player"));
+			tooltipAdder.accept(Component.literal(ChatFormatting.BLUE + "Shift-Right Click: " + ChatFormatting.RED + "Feed's Player"));
 		}
-		super.appendHoverText(stack, context, tooltip, tooltipFlag);
+		super.appendHoverText(stack, context, tooltipDisplay, tooltipAdder, flag);
 	}
 }

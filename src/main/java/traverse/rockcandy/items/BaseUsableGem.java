@@ -10,11 +10,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
 import traverse.rockcandy.registry.ModDataComponents;
 
 import javax.annotation.Nonnull;
-import java.util.List;
+import java.util.function.Consumer;
 
 public class BaseUsableGem extends Item {
 
@@ -68,13 +69,13 @@ public class BaseUsableGem extends Item {
 	}
 
 	@Override
-	public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag tooltipFlag) {
+	public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay tooltipDisplay, Consumer<Component> tooltipAdder, TooltipFlag flag) {
 		if (isActive(stack)) {
-			tooltip.add(Component.literal(ChatFormatting.BLUE + "Is Active: " + ChatFormatting.GREEN + "True"));
+			tooltipAdder.accept(Component.literal(ChatFormatting.BLUE + "Is Active: " + ChatFormatting.GREEN + "True"));
 		} else {
-			tooltip.add(Component.literal(ChatFormatting.BLUE + "Is Active: " + ChatFormatting.RED + "False"));
+			tooltipAdder.accept(Component.literal(ChatFormatting.BLUE + "Is Active: " + ChatFormatting.RED + "False"));
 		}
-		super.appendHoverText(stack, context, tooltip, tooltipFlag);
+		super.appendHoverText(stack, context, tooltipDisplay, tooltipAdder, flag);
 	}
 }
 

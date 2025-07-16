@@ -34,7 +34,7 @@ public class ModModelProvider extends ModelProvider {
 					.accept(
 							BlockModelGenerators.createSimpleBlock(
 									registryObject.get(),
-									resourcelocation
+									BlockModelGenerators.plainVariant(resourcelocation)
 							)
 					);
 		}

@@ -11,18 +11,19 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUseAnimation;
-import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
 import traverse.rockcandy.registry.ModTiers;
 
-import java.util.List;
+import java.util.function.Consumer;
 
-public class CandyPickaxeItem extends PickaxeItem {
+public class CandyPickaxeItem extends Item {
 	public CandyPickaxeItem(Properties properties) {
-		super(ModTiers.CANDY, 1, -2.6F, properties);
+		super(properties.pickaxe(ModTiers.CANDY, 1, -2.6F));
 	}
 
 	@Override
@@ -50,7 +51,7 @@ public class CandyPickaxeItem extends PickaxeItem {
 	@Override
 	public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
 		if (livingEntity instanceof Player player) {
-			player.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 2 * 30 * 20, 1));
+			player.addEffect(new MobEffectInstance(MobEffects.HASTE, 2 * 30 * 20, 1));
 			level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_BURP, SoundSource.PLAYERS, 0.5F, level.random.nextFloat() * 0.1F + 0.9F);
 			stack.hurtAndBreak(25, player, player.getEquipmentSlotForItem(stack));
 		}
@@ -58,12 +59,12 @@ public class CandyPickaxeItem extends PickaxeItem {
 	}
 
 	@Override
-	public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag tooltipFlag) {
+	public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay tooltipDisplay, Consumer<Component> tooltipAdder, TooltipFlag flag) {
 		if (!Screen.hasShiftDown()) {
-			tooltip.add(Component.literal(ChatFormatting.YELLOW + "Press Shift for more info"));
+			tooltipAdder.accept(Component.literal(ChatFormatting.YELLOW + "Press Shift for more info"));
 		} else {
-			tooltip.add(Component.literal(ChatFormatting.BLUE + "Shift-Right Click: " + ChatFormatting.RED + "Haste Buff"));
+			tooltipAdder.accept(Component.literal(ChatFormatting.BLUE + "Shift-Right Click: " + ChatFormatting.RED + "Haste Buff"));
 		}
-		super.appendHoverText(stack, context, tooltip, tooltipFlag);
+		super.appendHoverText(stack, context, tooltipDisplay, tooltipAdder, flag);
 	}
 }

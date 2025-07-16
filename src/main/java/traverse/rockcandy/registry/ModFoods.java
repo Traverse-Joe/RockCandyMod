@@ -3,11 +3,6 @@ package traverse.rockcandy.registry;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.component.Consumable;
-import net.minecraft.world.item.component.Consumables;
-import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
-
-import java.util.List;
 
 public class ModFoods {
 	public static final FoodHelper ROCK_CANDY = new FoodHelper.Builder().properties((new FoodProperties.Builder()).nutrition(5).saturationModifier(0.6F).build()).build();
@@ -35,7 +30,7 @@ public class ModFoods {
 			.effect(new MobEffectInstance(MobEffects.REGENERATION, 20 * 120, 1, false, false)).build();
 	public static final FoodHelper BLANK_CANDY = new FoodHelper.Builder().properties(
 			(new FoodProperties.Builder()).nutrition(1).saturationModifier(0.25F).build())
-			.effect(0.25F, new MobEffectInstance(MobEffects.CONFUSION, 20 * 10, 0, false, false)).build();
+			.effect(0.25F, new MobEffectInstance(MobEffects.NAUSEA, 20 * 10, 0, false, false)).build();
 
 
 

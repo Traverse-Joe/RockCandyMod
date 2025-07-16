@@ -42,9 +42,9 @@ public class KeyHandler {
 	}
 
 	public static int findItem(Item item, Player player) {
-		for (int i = 0; i < player.getInventory().items.size(); ++i) {
-			ItemStack itemstack = player.getInventory().items.get(i);
-			if (!player.getInventory().items.get(i).isEmpty() && itemstack.is(item)) {
+		for (int i = 0; i < player.getInventory().getNonEquipmentItems().size(); ++i) {
+			ItemStack itemstack = player.getInventory().getNonEquipmentItems().get(i);
+			if (!player.getInventory().getNonEquipmentItems().get(i).isEmpty() && itemstack.is(item)) {
 				return i;
 			}
 		}
