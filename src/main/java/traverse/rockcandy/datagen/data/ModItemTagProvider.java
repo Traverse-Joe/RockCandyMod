@@ -2,9 +2,7 @@ package traverse.rockcandy.datagen.data;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.data.tags.TagsProvider;
-import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.data.ItemTagsProvider;
 import org.jetbrains.annotations.NotNull;
 import traverse.rockcandy.RockCandy;
 import traverse.rockcandy.registry.ModItems;
@@ -13,8 +11,8 @@ import traverse.rockcandy.registry.ModTags;
 import java.util.concurrent.CompletableFuture;
 
 public class ModItemTagProvider extends ItemTagsProvider {
-	public ModItemTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagsProvider.TagLookup<Block>> blockTags) {
-		super(output, lookupProvider, blockTags, RockCandy.MODID);
+	public ModItemTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+		super(output, lookupProvider, RockCandy.MODID);
 	}
 
 	@Override

@@ -17,7 +17,7 @@ import traverse.rockcandy.datagen.data.ModRecipeProvider;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber
 public class ModDatagen {
 	@SubscribeEvent
 	public static void gatherData(GatherDataEvent.Client event) {
@@ -29,7 +29,7 @@ public class ModDatagen {
 		generator.addProvider(true, new ModRecipeProvider.Runner(output, lookupProvider));
 		ModBlockTagProvider blockTags = new ModBlockTagProvider(output, lookupProvider);
 		generator.addProvider(true, blockTags);
-		generator.addProvider(true, new ModItemTagProvider(output, lookupProvider, blockTags.contentsGetter()));
+		generator.addProvider(true, new ModItemTagProvider(output, lookupProvider));
 
 		generator.addProvider(true, new ModDataPackProvider(
 				output, lookupProvider, Set.of(RockCandy.MODID)));

@@ -18,7 +18,6 @@ import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
 import traverse.rockcandy.registry.ModTiers;
 
-import java.util.List;
 import java.util.function.Consumer;
 
 public class CandyClubItem extends Item {

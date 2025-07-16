@@ -9,9 +9,8 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.common.EventBusSubscriber.Bus;
 import net.neoforged.neoforge.client.event.InputEvent;
-import net.neoforged.neoforge.network.PacketDistributor;
+import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 import org.lwjgl.glfw.GLFW;
 import traverse.rockcandy.RockCandy;
 import traverse.rockcandy.items.CandyGemItem;
@@ -19,7 +18,7 @@ import traverse.rockcandy.network.AutoFeedPayload;
 import traverse.rockcandy.registry.ModItems;
 
 
-@EventBusSubscriber(bus = Bus.GAME, modid = RockCandy.MODID, value = Dist.CLIENT)
+@EventBusSubscriber(modid = RockCandy.MODID, value = Dist.CLIENT)
 public class KeyHandler {
 	public static final KeyMapping autoFeedKey = new KeyMapping("key.autofeed", GLFW.GLFW_KEY_Z, "key.categories.rockcandy");
 
@@ -34,7 +33,7 @@ public class KeyHandler {
 			if (slot != -1) {
 				ItemStack stack = player.getInventory().getItem(slot);
 				if (!stack.isEmpty()) {
-					PacketDistributor.sendToServer(new AutoFeedPayload(!CandyGemItem.isAutoFeeding(stack), slot));
+					ClientPacketDistributor.sendToServer(new AutoFeedPayload(!CandyGemItem.isAutoFeeding(stack), slot));
 					player.displayClientMessage(Component.literal("Mode Changed"), true);
 				}
 			}
