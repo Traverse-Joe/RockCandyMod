@@ -18,7 +18,9 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.capabilities.Capabilities;
-import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.transfer.ResourceHandler;
+import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.transfer.transaction.Transaction;
 import org.jetbrains.annotations.Nullable;
 import traverse.rockcandy.registry.ModDataComponents;
 
@@ -69,7 +71,7 @@ public class CandyGemItem extends BaseUsableGem {
 				ItemStack stack = player.getInventory().getItem(i);
 				if (stack.getItem() != this) continue;
 				if (isActive(stack)) {
-					absorbSugar(stack, player.getCapability(Capabilities.ItemHandler.ENTITY));
+					absorbSugar(stack, player.getCapability(Capabilities.Item.ENTITY));
 				}
 			}
 			if (isAutoFeeding(itemStack)) {
@@ -84,18 +86,21 @@ public class CandyGemItem extends BaseUsableGem {
 	}
 
 
-	private void absorbSugar(ItemStack rockGem, IItemHandler inventory) {
+	private void absorbSugar(ItemStack rockGem, ResourceHandler<ItemResource> inventory) {
 		int damage = rockGem.getDamageValue();
 		if (damage != 0) {
-			for (int i = 0; inventory.getSlots() > i; ++i) {
-				ItemStack stack = inventory.getStackInSlot(i);
+			for (int i = 0; inventory.size() > i; ++i) {
+				ItemResource resource = inventory.getResource(i);
 
-				if (stack.getItem() == Items.SUGAR) {
-					ItemStack sugarStack = inventory.extractItem(i, 1, false);
-					this.setDamage(rockGem, damage - sugarStack.getCount());
-
+				if (resource.is(Items.SUGAR)) {
+					try (Transaction tx = Transaction.openRoot()) {
+						if (inventory.extract(i, resource, 1, tx) != 1) {
+							continue;
+						}
+						tx.commit();
+						this.setDamage(rockGem, damage - 1);
+					}
 					return;
-
 				}
 			}
 		}

@@ -20,7 +20,8 @@ import traverse.rockcandy.registry.ModItems;
 
 @EventBusSubscriber(modid = RockCandy.MODID, value = Dist.CLIENT)
 public class KeyHandler {
-	public static final KeyMapping autoFeedKey = new KeyMapping("key.autofeed", GLFW.GLFW_KEY_Z, "key.categories.rockcandy");
+	private static KeyMapping.Category CATEGORY = new KeyMapping.Category(RockCandy.modLoc("category"));
+	public static final KeyMapping autoFeedKey = new KeyMapping("key.autofeed", GLFW.GLFW_KEY_Z, CATEGORY);
 
 	@SubscribeEvent
 	public static void onKeyPressed(InputEvent.Key event) {

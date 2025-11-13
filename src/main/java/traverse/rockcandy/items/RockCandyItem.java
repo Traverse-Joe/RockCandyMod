@@ -6,7 +6,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.neoforged.neoforge.items.ItemHandlerHelper;
 
 public class RockCandyItem extends Item {
 
@@ -17,7 +16,7 @@ public class RockCandyItem extends Item {
 	@Override
 	public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
 		if (livingEntity instanceof Player player) {
-			ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(Items.STICK));
+			player.getInventory().placeItemBackInInventory(new ItemStack(Items.STICK));
 		}
 		return super.finishUsingItem(stack, level, livingEntity);
 	}

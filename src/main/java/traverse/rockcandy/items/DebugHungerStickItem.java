@@ -20,7 +20,7 @@ public class DebugHungerStickItem extends Item {
 
 	@Override
 	public InteractionResult use(Level level, Player playerIn, InteractionHand hand) {
-		if (!level.isClientSide) {
+		if (!level.isClientSide()) {
 			playerIn.getFoodData().setFoodLevel(0);
 		}
 		return InteractionResult.FAIL;

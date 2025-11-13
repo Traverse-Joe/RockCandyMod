@@ -1,7 +1,6 @@
 package traverse.rockcandy.items.tools;
 
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -39,7 +38,7 @@ public class CandyPickaxeItem extends Item {
 	@Override
 	public InteractionResult use(Level level, Player player, InteractionHand hand) {
 		ItemStack stack = player.getItemInHand(hand);
-		if (!level.isClientSide && player.isCrouching()) {
+		if (!level.isClientSide() && player.isCrouching()) {
 			if (stack.getDamageValue() != stack.getMaxDamage()) {
 				player.startUsingItem(hand);
 			}
@@ -60,7 +59,7 @@ public class CandyPickaxeItem extends Item {
 
 	@Override
 	public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay tooltipDisplay, Consumer<Component> tooltipAdder, TooltipFlag flag) {
-		if (!Screen.hasShiftDown()) {
+		if (!flag.hasShiftDown()) {
 			tooltipAdder.accept(Component.literal(ChatFormatting.YELLOW + "Press Shift for more info"));
 		} else {
 			tooltipAdder.accept(Component.literal(ChatFormatting.BLUE + "Shift-Right Click: " + ChatFormatting.RED + "Haste Buff"));

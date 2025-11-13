@@ -16,7 +16,9 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.capabilities.Capabilities;
-import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.transfer.ResourceHandler;
+import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.transfer.transaction.Transaction;
 import org.jetbrains.annotations.Nullable;
 import traverse.rockcandy.registry.ModItems;
 
@@ -67,7 +69,7 @@ public class CandyDispenserItem extends BaseUsableGem {
 				ItemStack stack = player.getInventory().getItem(i);
 				if (stack.getItem() != this) continue;
 				if (isActive(stack)) {
-					absorbCandy(stack, player.getCapability(Capabilities.ItemHandler.ENTITY));
+					absorbCandy(stack, player.getCapability(Capabilities.Item.ENTITY));
 				}
 			}
 		}
@@ -80,21 +82,33 @@ public class CandyDispenserItem extends BaseUsableGem {
         }*/
 	}
 
-	public void absorbCandy(ItemStack rockStack, IItemHandler inventory) {
+	public void absorbCandy(ItemStack rockStack, ResourceHandler<ItemResource> inventory) {
 		int damage = rockStack.getDamageValue();
 		if (damage != 0) {
-			for (int i = 0; inventory.getSlots() > i; ++i) {
-				ItemStack stack = inventory.getStackInSlot(i);
-				if (stack.is(ModItems.RAW_CANDY.get())) {
-					ItemStack candyStack = inventory.extractItem(i, 1, false);
-					this.setDamage(rockStack, damage - candyStack.getCount());
-					return;
+			for (int i = 0; inventory.size() > i; ++i) {
+				ItemResource resource = inventory.getResource(i);
+				if (resource.is(ModItems.RAW_CANDY.get())) {
+					try (Transaction tx = Transaction.openRoot()) {
+						if (inventory.extract(i, resource, 1, tx) != 1) {
+							continue;
+						}
+						tx.commit();
+						this.setDamage(rockStack, damage - 1);
+						return;
+					}
 
-				} else if (stack.is(ModItems.HARDEN_CANDY.get())) {
-					ItemStack candyStack = inventory.extractItem(i, 1, false);
-					this.setDamage(rockStack, damage - (candyStack.getCount()) - 3);
+				} else if (resource.is(ModItems.HARDEN_CANDY.get())) {
+					try (Transaction tx = Transaction.openRoot()) {
+						if (inventory.extract(i, resource, 1, tx) != 1) {
+							continue;
+						}
+						tx.commit();
+						this.setDamage(rockStack, damage - 4);
+						return;
+					}
 				}
 			}
+
 		}
 	}
 
