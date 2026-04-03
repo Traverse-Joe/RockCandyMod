@@ -6,7 +6,7 @@ import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -28,13 +28,13 @@ public class ModModelProvider extends ModelProvider {
 	protected void registerModels(BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
 		for (DeferredHolder<Block, ? extends Block> registryObject : ModBlocks.BLOCKS.getEntries()) {
 			TextureMapping texturemapping = TextureMapping.cube(registryObject.get());
-			ResourceLocation resourcelocation = ModelTemplates.CUBE_ALL.create(registryObject.get(), texturemapping, blockModels.modelOutput);
+			Identifier identifier = ModelTemplates.CUBE_ALL.create(registryObject.get(), texturemapping, blockModels.modelOutput);
 
 			blockModels.blockStateOutput
 					.accept(
 							BlockModelGenerators.createSimpleBlock(
 									registryObject.get(),
-									BlockModelGenerators.plainVariant(resourcelocation)
+									BlockModelGenerators.plainVariant(identifier)
 							)
 					);
 		}

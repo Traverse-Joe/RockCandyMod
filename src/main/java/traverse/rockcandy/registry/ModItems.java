@@ -20,14 +20,14 @@ public class ModItems {
 	public static final DeferredItem<RockCandyItem> ROCK_CANDY = ITEMS.registerItem("rock_candy", RockCandyItem::new, () -> itemBuilder().food(ModFoods.ROCK_CANDY.properties(), ModFoods.ROCK_CANDY.consumable()));
 	public static final DeferredItem<RawRockCandyItem> RAW_CANDY = ITEMS.registerItem("raw_rock_candy", RawRockCandyItem::new, () -> itemBuilder().food(ModFoods.RAW_ROCK_CANDY.properties(), ModFoods.RAW_ROCK_CANDY.consumable()));
 	public static final DeferredItem<HardenRockCandyItem> HARDEN_CANDY = ITEMS.registerItem("harden_rock_candy", HardenRockCandyItem::new, () -> itemBuilder().food(ModFoods.HARDEN_ROCK_CANDY.properties(), ModFoods.HARDEN_ROCK_CANDY.consumable()));
-	public static final DeferredItem<DebugHungerStickItem> HUNGER_STICK = ITEMS.registerItem("hunger_stick", DebugHungerStickItem::new, () -> itemBuilder());
+	public static final DeferredItem<DebugHungerStickItem> HUNGER_STICK = ITEMS.registerItem("hunger_stick", DebugHungerStickItem::new);
 	public static final DeferredItem<Item> CANDY_CORE = ITEMS.registerSimpleItem("candy_core");
 	public static final DeferredItem<Item> CANDY_ROD = ITEMS.registerSimpleItem("candy_rod");
 	public static final DeferredItem<BlockItem> CANDY_ORE = ITEMS.registerSimpleBlockItem(ModBlocks.CANDY_ORE);
 	public static final DeferredItem<BlockItem> CANDY_BLOCK = ITEMS.registerSimpleBlockItem(ModBlocks.CANDY_BLOCK);
 
-	public static final DeferredItem<Item> CANDY_GEM = ITEMS.registerItem("candy_gem", CandyGemItem::new, () -> itemBuilder());
-	public static final DeferredItem<Item> CANDY_DISPENSER = ITEMS.registerItem("candy_dispenser", CandyDispenserItem::new, () -> itemBuilder());
+	public static final DeferredItem<Item> CANDY_GEM = ITEMS.registerItem("candy_gem", CandyGemItem::new);
+	public static final DeferredItem<Item> CANDY_DISPENSER = ITEMS.registerItem("candy_dispenser", CandyDispenserItem::new);
 
 	//Special Candy
 	public static final DeferredItem<Item> RED_HOT_CANDY = ITEMS.registerItem("red_hot_candy", Item::new, () -> itemBuilder().food(ModFoods.RED_HOT_CANDY.properties(), ModFoods.RED_HOT_CANDY.consumable()));
@@ -40,8 +40,8 @@ public class ModItems {
 
 	//Tools
 
-	public static final DeferredItem<CandyClubItem> CANDY_CLUB = ITEMS.registerItem("candy_club", CandyClubItem::new, () -> itemBuilder());
-	public static final DeferredItem<CandyPickaxeItem> CANDY_CANE_PICKAXE = ITEMS.registerItem("candy_cane_pickaxe", CandyPickaxeItem::new, () -> itemBuilder());
+	public static final DeferredItem<CandyClubItem> CANDY_CLUB = ITEMS.registerItem("candy_club", CandyClubItem::new);
+	public static final DeferredItem<CandyPickaxeItem> CANDY_CANE_PICKAXE = ITEMS.registerItem("candy_cane_pickaxe", CandyPickaxeItem::new);
 
 	private static Item.Properties itemBuilder() {
 		return new Item.Properties();

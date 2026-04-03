@@ -4,10 +4,10 @@
 //import sora.rockcandy.gui.container.ContainerCandyInfuser;
 //import sora.rockcandy.tileentity.TileEntityCandyInfuser;
 //import net.minecraft.client.gui.inventory.GuiContainer;
-//import net.minecraft.util.ResourceLocation;
+//import net.minecraft.util.Identifier;
 //
 //public class GuiCandyInfuser extends GuiContainer {
-//    public static ResourceLocation infuser_res = RockCandy.modLoc("textures/gui/candy_infuser.png");
+//    public static Identifier infuser_res = RockCandy.modLoc("textures/gui/candy_infuser.png");
 //    public int Width = 176;
 //    public int Height = 166;
 //    TileEntityCandyInfuser infuser;

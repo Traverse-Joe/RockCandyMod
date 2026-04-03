@@ -18,12 +18,12 @@ This mod aims to bring you hassle free candy ore! This candy ore was generated b
 [[dependencies.rockcandy]]
 modId="minecraft"
 type="required"
-versionRange="[1.21.10,1.22)"
+versionRange="[1.21.11,1.22)"
 ordering="NONE"
 side="BOTH"
 [[dependencies.rockcandy]]
 modId="neoforge"
 type="required"
-versionRange="[21.10.0-beta,)"
+versionRange="[21.11.0-beta,)"
 ordering="NONE"
 side="BOTH"
