@@ -5,17 +5,17 @@ import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import traverse.rockcandy.RockCandy;
 import traverse.rockcandy.registry.ModItems;
 
 @JeiPlugin
 public class JEI implements IModPlugin {
-	public static final ResourceLocation PLUGIN_UID = RockCandy.modLoc("jei_plugin");
+	public static final Identifier PLUGIN_UID = RockCandy.modLoc("jei_plugin");
 
 	@Override
-	public ResourceLocation getPluginUid() {
+	public Identifier getPluginUid() {
 		return PLUGIN_UID;
 	}
 
