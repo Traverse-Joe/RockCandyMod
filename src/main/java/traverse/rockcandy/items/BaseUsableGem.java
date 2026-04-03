@@ -28,7 +28,8 @@ public class BaseUsableGem extends Item {
 	public InteractionResult use(Level level, Player playerIn, InteractionHand hand) {
 		ItemStack stack = playerIn.getItemInHand(hand);
 		if (!level.isClientSide() && playerIn.isCrouching()) {
-			playerIn.level().playSound(null, playerIn.getX(), playerIn.getY(), playerIn.getZ(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 1.0F, ((playerIn.level().random.nextFloat() - playerIn.level().random.nextFloat()) * 0.7F + 1.2F));
+			playerIn.level().playSound(null, playerIn.getX(), playerIn.getY(), playerIn.getZ(), SoundEvents.EXPERIENCE_ORB_PICKUP, SoundSource.PLAYERS, 1.0F,
+					((playerIn.level().getRandom().nextFloat() - playerIn.level().getRandom().nextFloat()) * 0.7F + 1.2F));
 			this.toggleActive(stack);
 		}
 		return InteractionResult.SUCCESS;

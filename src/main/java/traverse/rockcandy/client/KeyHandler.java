@@ -35,7 +35,7 @@ public class KeyHandler {
 				ItemStack stack = player.getInventory().getItem(slot);
 				if (!stack.isEmpty()) {
 					ClientPacketDistributor.sendToServer(new AutoFeedPayload(!CandyGemItem.isAutoFeeding(stack), slot));
-					player.displayClientMessage(Component.literal("Mode Changed"), true);
+					player.sendOverlayMessage(Component.literal("Mode Changed"));
 				}
 			}
 		}

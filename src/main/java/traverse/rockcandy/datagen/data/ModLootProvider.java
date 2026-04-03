@@ -2,18 +2,15 @@ package traverse.rockcandy.datagen.data;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
-import net.minecraft.core.WritableRegistry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
-import net.minecraft.util.ProblemReporter.Collector;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
@@ -60,11 +57,5 @@ public class ModLootProvider extends LootTableProvider {
 		protected Iterable<Block> getKnownBlocks() {
 			return (Iterable<Block>) ModBlocks.BLOCKS.getEntries().stream().map(holder -> (Block)holder.value())::iterator;
 		}
-	}
-
-	@Override
-	protected void validate(@NotNull WritableRegistry<LootTable> writableregistry,
-	                        @NotNull ValidationContext validationcontext, @NotNull Collector collector) {
-		super.validate(writableregistry, validationcontext, collector);
 	}
 }

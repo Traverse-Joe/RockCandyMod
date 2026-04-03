@@ -51,7 +51,8 @@ public class CandyClubItem extends Item {
 		if (livingEntity instanceof Player player) {
 			if (!level.isClientSide()) {
 				player.getFoodData().eat(4, 1.0F);
-				level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_BURP, SoundSource.PLAYERS, 0.5F, level.random.nextFloat() * 0.1F + 0.9F);
+				level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_BURP, SoundSource.PLAYERS, 0.5F,
+						level.getRandom().nextFloat() * 0.1F + 0.9F);
 				stack.hurtAndBreak(10, player, player.getEquipmentSlotForItem(stack));
 			}
 		}

@@ -52,7 +52,8 @@ public class CandyDispenserItem extends BaseUsableGem {
 	public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entityLiving) {
 		if (entityLiving instanceof Player player) {
 			player.getFoodData().eat(3, 0.3F);
-			level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_BURP, SoundSource.PLAYERS, 0.5F, level.random.nextFloat() * 0.1F + 0.9F);
+			level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.PLAYER_BURP, SoundSource.PLAYERS, 0.5F,
+					level.getRandom().nextFloat() * 0.1F + 0.9F);
 			stack.hurtAndBreak(1, player, player.getEquipmentSlotForItem(stack));
 		}
 		return stack;

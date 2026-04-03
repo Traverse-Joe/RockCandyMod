@@ -16,7 +16,6 @@
     "components": {
       "minecraft:damage": 1000
     },
-    "count": 1,
     "id": "rockcandy:candy_gem"
   }
 }

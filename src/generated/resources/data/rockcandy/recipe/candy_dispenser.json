@@ -15,7 +15,6 @@
     "components": {
       "minecraft:damage": 50
     },
-    "count": 1,
     "id": "rockcandy:candy_dispenser"
   }
 }

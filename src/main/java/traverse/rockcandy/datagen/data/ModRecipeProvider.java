@@ -3,6 +3,8 @@ package traverse.rockcandy.datagen.data;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
+import net.minecraft.core.component.DataComponentPatch;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -11,8 +13,9 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
@@ -66,8 +69,7 @@ public class ModRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_diamond", has(Tags.Items.GEMS_DIAMOND))
 				.unlockedBy("has_sugar", has(Items.SUGAR)).save(output);
 
-		ItemStack dispenserStack = new ItemStack(ModItems.CANDY_DISPENSER.get());
-		dispenserStack.setDamageValue(50);
+		ItemStackTemplate dispenserStack = new ItemStackTemplate(ModItems.CANDY_DISPENSER.get(), DataComponentPatch.builder().set(DataComponents.DAMAGE, 50).build());
 		ShapedRecipeBuilder.shaped(items, RecipeCategory.MISC, dispenserStack)
 				.pattern("IHI")
 				.pattern("ICI")
@@ -79,8 +81,7 @@ public class ModRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_iron_ingot", has(Tags.Items.INGOTS_IRON))
 				.unlockedBy("has_chest", has(Tags.Items.CHESTS_WOODEN)).save(output);
 
-		ItemStack gemStack = new ItemStack(ModItems.CANDY_GEM.get());
-		gemStack.setDamageValue(1000);
+		ItemStackTemplate gemStack = new ItemStackTemplate(ModItems.CANDY_GEM.get(), DataComponentPatch.builder().set(DataComponents.DAMAGE, 1000).build());
 		ShapedRecipeBuilder.shaped(items, RecipeCategory.MISC, gemStack)
 				.pattern("RBR")
 				.pattern("HDH")
@@ -94,8 +95,8 @@ public class ModRecipeProvider extends RecipeProvider {
 				.unlockedBy("has_diamond", has(Tags.Items.GEMS_DIAMOND))
 				.unlockedBy("has_dragon_breath", has(Items.DRAGON_BREATH)).save(output);
 
-		SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.CANDY_CORE.get()), RecipeCategory.MISC,
-						new ItemStack(ModItems.CANDY_ROD.get(), 2), 0.6F, 200)
+		SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.CANDY_CORE.get()), RecipeCategory.MISC, CookingBookCategory.MISC,
+						new ItemStackTemplate(ModItems.CANDY_ROD.get(), 2), 0.6F, 200)
 				.unlockedBy("has_candy_core", has(ModItems.CANDY_CORE.get()))
 				.save(output);
 

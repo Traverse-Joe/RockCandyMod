@@ -1,4 +1,4 @@
-// 1.21.11	2026-04-04T00:17:41.1345849	Rock Candy Recipes
+// 26.1.1	2026-04-04T00:36:06.9560467	Rock Candy Recipes
 67bcefe48baa623f294607c205ff923bb35fca6a data/rockcandy/advancement/recipes/building_blocks/candy_block.json
 0933d8e50b2c41ee9d281c1f7d11b8289b8a2cf7 data/rockcandy/advancement/recipes/food/clear_candy.json
 00ec7ba8fc09200aaa427248d65eff6dc9b88761 data/rockcandy/advancement/recipes/food/deep_blue_candy.json
@@ -16,12 +16,12 @@ ce2dc6561f2394ceef0ea2b0c44bcb566a61e20a data/rockcandy/advancement/recipes/misc
 d4e282e6e69a03c1d8b72ac5f88b9b5fb5d2c10e data/rockcandy/advancement/recipes/misc/candy_rod.json
 7f01791991471b598e23a2294026084c0551bf70 data/rockcandy/advancement/recipes/tools/candy_cane_pickaxe.json
 3831986c4b7623ff86b14ebe7eba0356d1b0c7ba data/rockcandy/advancement/recipes/tools/candy_club.json
-8566af3099c1c92e95289a97ad7551588884823d data/rockcandy/recipe/candy_block.json
-b62ae61a0a0aea7e64c1a644fad50154542ed0be data/rockcandy/recipe/candy_cane_pickaxe.json
-a3e7c58f7d6f0f64a97f7cd6707f861a0e4d50df data/rockcandy/recipe/candy_club.json
-a6a55e4075f59ac9257545b42bc53516c8d1d9a5 data/rockcandy/recipe/candy_core.json
-49348f9a43618885d7f7859c93c059704f37fcc8 data/rockcandy/recipe/candy_dispenser.json
-acda9622dddacfad08bc97ba1a44b393a4dd3f63 data/rockcandy/recipe/candy_gem.json
+ab1d35232eccbe10c0505b81e854ff65f7e8b09d data/rockcandy/recipe/candy_block.json
+6ef5a29f6f2ea2010bd199585ace35f9ab4d32fb data/rockcandy/recipe/candy_cane_pickaxe.json
+ba71cd549d6dc8ca5326cfb97f7c1216a4cf3cf4 data/rockcandy/recipe/candy_club.json
+247903f988c0e5e90ec0deac843dd5b5e46a8cae data/rockcandy/recipe/candy_core.json
+26606c358248cce865aa9b7d9b45ba3b2c17bad6 data/rockcandy/recipe/candy_dispenser.json
+00d83ec9ce17be0ce66bdf86f4d22afc1b51b788 data/rockcandy/recipe/candy_gem.json
 de9cb9328fbf6234697cd1800137e791e19bcff0 data/rockcandy/recipe/candy_rod.json
 2b4a95733a12df01c0f1d65e72be22a036db8fcf data/rockcandy/recipe/clear_candy.json
 073594e864a9c72ec374a7f4c034cb2f3444001a data/rockcandy/recipe/deep_blue_candy.json
@@ -32,4 +32,4 @@ b0879769426a35515aa423a362cf44bbbc52f50b data/rockcandy/recipe/healthy_candy.jso
 cbd3c446b3044b43b42b535877a9da3df4a8db7a data/rockcandy/recipe/raw_rock_candy.json
 7295a5afdd1ca4de9298586e14982d9fa5efa216 data/rockcandy/recipe/raw_rock_candy2.json
 005e3de15f0c143da1863df37f461338c5b16ff1 data/rockcandy/recipe/red_hot_candy.json
-feec8a4b0ed61876313f847b3763d3fbe339dda3 data/rockcandy/recipe/rock_candy.json
+b7f3ef4a14c138c0c1d9429c25a871962625abad data/rockcandy/recipe/rock_candy.json
