@@ -6,6 +6,7 @@ import net.minecraft.tags.BlockTags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import org.jetbrains.annotations.NotNull;
 import traverse.rockcandy.RockCandy;
+import traverse.rockcandy.registry.ModBlocks;
 import traverse.rockcandy.registry.ModTags;
 
 import java.util.concurrent.CompletableFuture;
@@ -18,5 +19,6 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 	@Override
 	protected void addTags(@NotNull HolderLookup.Provider provider) {
 		this.tag(ModTags.INCORRECT_FOR_CANDY).addTag(BlockTags.INCORRECT_FOR_DIAMOND_TOOL);
+		this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.CANDY_BLOCK.get(), ModBlocks.CANDY_ORE.get());
 	}
 }
