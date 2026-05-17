@@ -19,7 +19,7 @@
   "item.rockcandy.hunger_stick" : "Debug Hunger Stick",
   "item.rockcandy.candy_gem" : "Everlasting Gobstopper",
   "item.rockcandy.candy_dispenser": "Candy Dispenser",
-  "key.categories.rockcandy": "Rock Candy",
+  "key.category.rockcandy.category": "Rock Candy",
   "key.autofeed": "Toggle AutoFeed",
   "jei.candy_dispenser.desc" : "The Candy Dispenser holds rock candy and hardened rock candy to consume.",
   "jei.candy_gem.desc" : "The Everlasting Gobstopper is a nifty item. It will store sugar into it and can be eaten. It has an Auto Feed Function just turn it on/off when needed",

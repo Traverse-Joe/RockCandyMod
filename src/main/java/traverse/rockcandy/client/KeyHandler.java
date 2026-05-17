@@ -10,6 +10,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.InputEvent;
+import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 import org.lwjgl.glfw.GLFW;
 import traverse.rockcandy.RockCandy;
@@ -20,8 +21,14 @@ import traverse.rockcandy.registry.ModItems;
 
 @EventBusSubscriber(modid = RockCandy.MODID, value = Dist.CLIENT)
 public class KeyHandler {
-	private static KeyMapping.Category CATEGORY = new KeyMapping.Category(RockCandy.modLoc("category"));
+	public static final KeyMapping.Category CATEGORY = new KeyMapping.Category(RockCandy.modLoc("category"));
 	public static final KeyMapping autoFeedKey = new KeyMapping("key.autofeed", GLFW.GLFW_KEY_Z, CATEGORY);
+
+	@SubscribeEvent
+	public static void onRegisterKeyMappings(final RegisterKeyMappingsEvent event) {
+		event.registerCategory(KeyHandler.CATEGORY);
+		event.register(KeyHandler.autoFeedKey);
+	}
 
 	@SubscribeEvent
 	public static void onKeyPressed(InputEvent.Key event) {

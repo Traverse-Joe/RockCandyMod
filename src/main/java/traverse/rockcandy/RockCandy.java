@@ -11,7 +11,6 @@ import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import traverse.rockcandy.client.ClientHandler;
 import traverse.rockcandy.network.RockCandyPacketHandler;
 import traverse.rockcandy.registry.ConfigHandler;
 import traverse.rockcandy.registry.ModBlocks;
@@ -36,7 +35,6 @@ public class RockCandy {
 
 		if (dist.isClient()) {
 			container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
-			eventBus.addListener(ClientHandler::onRegisterKeyMappings);
 		}
 	}
 
