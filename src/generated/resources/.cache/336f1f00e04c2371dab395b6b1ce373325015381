@@ -1,2 +1,3 @@
-// 26.1.1	2026-04-04T00:36:06.9575542	Tags for minecraft:block mod id rockcandy
+// 26.1.2	2026-05-17T13:41:15.5726338	Tags for minecraft:block mod id rockcandy
+dd119b633be93a5945a5da58a678e200cb112fc4 data/minecraft/tags/block/mineable/pickaxe.json
 f57a1c0d935679dbbcab3f2e8a06cae2238a6735 data/rockcandy/tags/block/needs_candy_tool.json
